@@ -33,7 +33,7 @@ body {
 
 .searchMenu {
     
-    width: 70%;
+    width: 80%;
   align-items: center;
 }
 
@@ -76,18 +76,30 @@ body {
   -moz-appearance: none;
   background: transparent;
   border: 1px solid white;
-  width: 100px;
+  width: 110px;
   height: 35px;
   color: white;
   text-align: center;
   justify-content: center;
   padding: 3px;
   font-size: large;
+  margin: 20px;
 }
 
 .topRow {
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
+
+.bottom-row
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
 .menu-options {
   list-style-type: none;
   display: flex;
@@ -119,12 +131,156 @@ body {
   background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/shan-specialist-logo.png);
   background-size: contain; /* Ensure the image covers the element */
   background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  
 }
 .shan-kitchen-logo {
   height: 75px;
   width: 75px;
   margin: 20px;
   background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/shan-kitchen-logo.png);
-  background-size: contain; /* Ensure the image covers the element */
-  background-position: center; /* Center the image */
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Carousel section */
+.carousel
+{
+  margin: 10px;
+  background-image: url(https://www.shanfoods.com/wp-content/plugins/main_slider/images/6521web_banner_all_rang.jpg);
+  background-size: cover; 
+  height: 650px;
+  width: 100%;
+}
+/*scroll down section*/
+.scroll-down
+{
+  font-family: sans-serif;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  height: 120px;
+}
+
+.down-arrow
+{
+  margin: 30px;
+}
+
+
+.circle
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; 
+  height: 50px;
+  border: 2px solid #FFD43B; 
+  border-radius: 50%; 
+  margin: 0 10px; 
+}
+.get-to-know-us
+{
+  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/know-us-bg.png);
+  background-size: cover;
+  align-items: center;
+  height: 530px;
+  width: 100%;
+}
+.content-heading
+{
+
+  display: flex;
+  align-items: center;
+  height: 250px;
+  width: 100%;
+}
+.left-line
+{
+  height: 1px;
+  flex-grow: 1; /* Allows the line to expand */
+  background-color: white;
+  width: auto;
+}
+.text
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  width: 220px;
+  position: relative;
+}
+.text p {
+  display: flex;  
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+.right-line
+{
+  margin: 3px solid white;
+  height: 1px;
+  background-color: white;
+  flex-grow: 1; /* Allows the line to expand */
+}
+
+.first-para
+{
+  font-size: 30px;
+  font-family:  Helvetica, sans-serif;
+  color: white;
+
+}
+.second-para
+{
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #ffd35e;
+}
+.third-para
+{
+  font-size: 30px;
+  font-family:  Helvetica, sans-serif;
+  color:  #ffd35e;
+}
+.content
+{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.content div
+{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+margin-left: 80px;
+margin-right: 80px;
+}
+.content p{
+  margin: 5px 0; 
+  color: white;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: bold;
+}
+.content img
+{
+  display: block;
+  height: 150px;
+  width: 150px;
+  contain: content;
+}
+.icon1 p{
+  margin: 5px 0; 
+  color: white;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: bold;
 }
