@@ -32,8 +32,7 @@ body {
 }
 
 .searchMenu {
-    
-    width: 80%;
+  width: 80%;
   align-items: center;
 }
 
@@ -92,13 +91,11 @@ body {
   align-items: flex-end;
 }
 
-.bottom-row
-{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.bottom-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
-
 
 .menu-options {
   list-style-type: none;
@@ -132,80 +129,89 @@ body {
   background-size: contain; /* Ensure the image covers the element */
   background-position: center; /* Center the image */
   background-repeat: no-repeat;
-  
 }
 .shan-kitchen-logo {
   height: 75px;
   width: 75px;
   margin: 20px;
   background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/shan-kitchen-logo.png);
-  background-size: contain; 
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
 /* Carousel section */
-.carousel
-{
+.carousel {
   margin: 10px;
   background-image: url(https://www.shanfoods.com/wp-content/plugins/main_slider/images/6521web_banner_all_rang.jpg);
-  background-size: cover; 
+  background-size: cover;
   height: 650px;
   width: 100%;
 }
 /*scroll down section*/
-.scroll-down
-{
+.scroll-down {
   font-family: sans-serif;
   color: white;
   font-size: 20px;
   display: flex;
-  justify-content: center; 
-  align-items: center;   
+  justify-content: center;
+  align-items: center;
   height: 120px;
 }
 
-.down-arrow
-{
+.down-arrow {
   margin: 30px;
 }
 
-
-.circle
-{
+.circle {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px; 
+  width: 50px;
   height: 50px;
-  border: 2px solid #FFD43B; 
-  border-radius: 50%; 
-  margin: 0 10px; 
+  border: 2px solid #ffd43b;
+  border-radius: 50%;
+  margin: 0 10px;
 }
-.get-to-know-us
-{
-  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/know-us-bg.png);
+.get-to-know-us {
+  position: relative;
   background-size: cover;
   align-items: center;
   height: 530px;
   width: 100%;
 }
-.content-heading
+.white-circle
 {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Optional shadow for visibility */
+}
+.image-container {
+  position: absolute; /* Position the image absolutely */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Make it full width */
+  z-index: -1; /* Send it to the back */
+}
 
+.image-container img {
+  width: 100%; /* Ensure the image scales to full width */
+  height: auto; /* Maintain aspect ratio */
+}
+.content-heading {
   display: flex;
   align-items: center;
   height: 250px;
   width: 100%;
 }
-.left-line
-{
+.left-line {
   height: 1px;
   flex-grow: 1; /* Allows the line to expand */
   background-color: white;
   width: auto;
 }
-.text
-{
+.text {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -215,72 +221,126 @@ body {
   position: relative;
 }
 .text p {
-  display: flex;  
+  display: flex;
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
 }
-.right-line
-{
+.right-line {
   margin: 3px solid white;
   height: 1px;
   background-color: white;
   flex-grow: 1; /* Allows the line to expand */
 }
 
-.first-para
-{
+.first-para {
   font-size: 30px;
-  font-family:  Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   color: white;
-
 }
-.second-para
-{
+.second-para {
   font-size: 50px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: #ffd35e;
 }
-.third-para
-{
+.third-para {
   font-size: 30px;
-  font-family:  Helvetica, sans-serif;
-  color:  #ffd35e;
+  font-family: Helvetica, sans-serif;
+  color: #ffd35e;
 }
-.content
-{
+.content {
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
 }
-.content div
-{
-  
+.content div {
   display: flex;
   flex-direction: column;
   align-items: center;
-margin-left: 80px;
-margin-right: 80px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
-.content p{
-  margin: 5px 0; 
+.content p {
+  margin: 5px 0;
   color: white;
   font-family: monospace;
   font-size: 30px;
   font-weight: bold;
 }
-.content img
-{
+.content img {
   display: block;
   height: 150px;
   width: 150px;
   contain: content;
 }
-.icon1 p{
-  margin: 5px 0; 
+.icon1 p {
+  margin: 5px 0;
   color: white;
   font-family: monospace;
   font-size: 30px;
   font-weight: bold;
+}
+/* recipe mixes*/
+.recipemixes {
+  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/recipe-mixes-table.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+.recipe-mixes-text {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-mixes-text img {
+  margin-bottom: 5px;
+}
+#text1 {
+  margin-bottom: 5px;
+
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 29px;
+}
+#text2 {
+  margin-bottom: 80px;
+
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 45px;
+  font-weight: bold;  
+}
+.mixes-button
+{
+  margin: 2px;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 190px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:red;
+}
+.recipe-carousel
+{
+  margin-left: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.horizontal-rule
+{
+  height: 1px;
+  width: 100%;
+  background-color: white;
 }
