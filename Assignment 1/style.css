@@ -361,6 +361,11 @@ body {
   align-items: center;
   justify-items: center;
 }
+.map-image
+{
+  height: auto;
+  width: 100%;
+}
 .horizontal-rule
 {
   height: 1px;
@@ -447,6 +452,7 @@ body {
   font-family:  Helvetica, sans-serif;
   color: white;
 }
+
 .distribution
 {
   width:400px;
