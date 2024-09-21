@@ -7,30 +7,28 @@ body {
   background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/bg.jpg);
   scroll-behavior: smooth;
   background-repeat: repeat-y;
+  justify-content: center;
 }
 
 .navbar {
   width: 100%;
-  height: 110px;
+  height: 120px;
   color: white;
   display: flex;
   align-items: center;
 }
 
-.logo {
-  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/logo.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 40px;
-  width: 100%;
-}
-
 .nav-logo {
+  margin: 20px;
+  padding: 10px;
   width: 10%;
   height: 40px;
-  margin-left: 20px;
 }
-
+.nav-logo img{
+  padding: 5px;
+  width: 60%;
+  min-width: 80px;
+}
 .searchMenu {
   width: 80%;
   align-items: center;
@@ -50,16 +48,16 @@ body {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-right: none;
-  width: 250px;
-  height: 35px;
+  width: 300px;
+  height: 40px;
   color: white;
   padding: 5px;
 }
 .search-icon {
   margin-right: 40px;
   font-size: x-large;
-  width: 50px;
-  height: 35px;
+  width: 80px;
+  height: 40px;
   border: 1px solid white;
   border-left: none;
   padding: 5px;
@@ -96,7 +94,16 @@ body {
   flex-direction: column;
   align-items: flex-end;
 }
-
+.bottom-row select
+{
+  border: none;
+  font-size: 15px;
+  color: white;
+  padding: 15px;
+  background-color: transparent;
+  text-decoration: none;
+  text-align: center;
+}
 .menu-options {
   list-style-type: none;
   display: flex;
@@ -318,7 +325,7 @@ body {
 }
 .mixes-button
 {
-  margin: 2px;
+  margin: 20px;
   color: white;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
@@ -343,4 +350,208 @@ body {
   height: 1px;
   width: 100%;
   background-color: white;
+}
+.contact-and-apply
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  gap: 100px;
+  height: 640px;
+}
+.apply
+{
+  margin: 30px;
+  margin-top: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.join-family
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.newsletter
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.apply img{
+  height: 80px;
+  width: 80px;
+  margin: 20px;
+}
+.apply p
+{
+  font-size: 18px;
+  font-family:  Helvetica, sans-serif;
+  color: white;
+}
+.distribution
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 450px;
+  border-right: red solid 2px;
+  border-left: red solid 2px;
+}
+.distribution img
+{
+  height: 80px;
+  width: 85px;
+  margin :20px;
+}
+.search-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: row;
+  align-items: center; /* Center items vertically */
+  margin: 20px; /* Optional: Add some margin around the container */
+}
+
+.search-box {
+  width: 200px; /* Set width */
+  height: 22px; /* Set height */
+  padding: 10px; /* Add some padding */
+  font-size: 16px; /* Adjust font size */
+  border: 1px solid #ccc; /* Border style */
+  border-right: none;
+  background: transparent;
+}
+
+.search-button {
+  border:none;
+  border: white solid 1px;
+  border-left: none;
+  background-color: red; /* Red background */
+  height: 44px; /* Match height of the search box */
+  width: 80px; /* Set a fixed width for the button */
+  cursor: pointer; /* Change cursor on hover */
+  display: flex; /* Center the image */
+  align-items: center; /* Center image vertically */
+  justify-content: center; /* Center image horizontally */
+}
+.search-button img {
+  width: 30px; /* Set image width */
+  height: auto; /* Maintain aspect ratio */
+}
+.quicklinks
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.quicklinks h5
+{
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 25px;
+}
+.horizontal-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox to arrange items in a row */
+}
+
+.horizontal-list li {
+  margin-right: 20px; /* Space between items */
+}
+
+.horizontal-list a {
+  text-decoration: none; /* Remove underline */
+  color: white; /* White text */
+  font-size: 20px; /* Font size */
+}
+
+.horizontal-list a:hover {
+  text-decoration: underline; /* Optional: underline on hover */
+}
+.media-icons
+{
+  height: 90px;
+  width: 100%;
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center the icons horizontally */
+  align-items: center; /* Center the icons vertically */
+}
+.media-icons div
+{color: white;
+  font-size: 25px;
+  height: 50px;
+  width:50px;
+  border-radius: 50%;
+  border: solid white 1px; /* White border */
+  margin: 0 10px; /* Space between icons */
+  display: flex; /* Allow for content inside */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  background-color: transparent; /* Or set a background color/image */
+
+}
+.footer-div
+{
+  display: flex;
+  justify-content: center; /* Center contents horizontally */
+  align-items: center; /* Center contents vertically if needed */
+  flex-direction: column; /* Stack layers vertically */
+}
+.layer-1
+{
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  width: 80%;
+  color: white;
+  margin: 25px; 
+  margin-bottom:0px ;
+  padding: 5px 5px 0px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.layer-1 p
+{
+  width:305px;
+  text-align: center;
+}
+.layer-1 div
+{
+  display: flex; /* Use flexbox for each item */
+  align-items: center; /* Center the icon and text vertically */
+  margin: 10px; /* Optional: Add some space between items */
+  gap: 35px;
+}
+.contact p 
+{
+  text-align: left;
+}
+.information-div
+{
+  display: flex;
+  gap: 200px;
+}
+.layer-2 
+{
+  display: flex; /* Use flexbox */
+  margin-top: -5px;
+  justify-content: space-between; /* Position items at opposite ends */
+  width: 80%; /* Ensure it spans the full width */
+  padding: 5px; /* Optional: Add some padding */
+  box-sizing: border-box; /* Include padding in width calculation */
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
