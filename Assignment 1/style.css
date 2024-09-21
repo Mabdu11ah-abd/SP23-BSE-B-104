@@ -41,6 +41,7 @@ body {
 }
 
 .search-input {
+  outline: none;
   margin: 20px;
   margin-right: 0px;
   background: transparent;
@@ -468,6 +469,7 @@ body {
   flex-direction: row;
   align-items: center; /* Center items vertically */
   margin: 20px; /* Optional: Add some margin around the container */
+  color: white;
 }
 
 .search-box {
@@ -476,6 +478,7 @@ body {
   padding: 10px; /* Add some padding */
   font-size: 16px; /* Adjust font size */
   border: 1px solid #ccc; /* Border style */
+  color: white;
   border-right: none;
   background: transparent;
 }
