@@ -363,8 +363,11 @@ body {
 }
 .map-image
 {
-  height: auto;
   width: 100%;
+  height: auto; /* maintains aspect ratio */
+  max-width: 100%; /* ensures it doesn't overflow its container */
+  display: block; /* prevents bottom spacing */
+
 }
 .horizontal-rule
 {
