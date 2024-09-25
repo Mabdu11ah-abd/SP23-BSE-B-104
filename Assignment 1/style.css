@@ -6,7 +6,9 @@
 body {
   background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/bg.jpg);
   scroll-behavior: smooth;
+  background-size: 100%;
   background-repeat: repeat-y;
+  background-position: center;
   justify-content: center;
 }
 
@@ -69,15 +71,16 @@ body {
   border-bottom-right-radius: 5px;
 }
 .location-selector {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  display: flex;
+  text-decoration: none;
   background: transparent;
   border: 1px solid white;
-  width: 110px;
+  width: 200px;
   height: 35px;
   color: white;
   text-align: center;
+  align-items: center;
+  gap: 5px;
   justify-content: center;
   padding: 3px;
   font-size: large;
