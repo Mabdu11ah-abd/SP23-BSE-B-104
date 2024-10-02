@@ -405,3 +405,18 @@ body
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+.custom-list a{
+  display: inline-block;
+  margin: 10px;
+  width: 185px;
+  height: 35px;
+  border: 1px solid yellow; /* Yellow border */
+  border-radius: 5px; /* Small border radius */
+  text-align: center;
+  background-color: transparent; /* Transparent background */
+  color: white; /* White text */
+  font-weight: bold; /* Bold text */
+  font-size: 16px; /* Font size */
+  line-height: 35px; /* Center text vertically */
+  text-decoration: none; /* Remove underline */
+}
