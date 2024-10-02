@@ -383,3 +383,25 @@ body
   width: 100%;
   background-color: white;
 }
+.custom-button
+{
+  min-width: 40px;
+  border: 1px solid white;
+  background-color: transparent;
+  border-left: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.custom-search
+{
+  border: 1px solid white;
+  background-color: transparent;
+  border-right: none;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
