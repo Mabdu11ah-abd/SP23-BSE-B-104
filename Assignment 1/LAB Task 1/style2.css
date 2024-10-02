@@ -22,9 +22,12 @@
 }
 body
 {
-    background-image: url(images/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/bg.jpg);
+  scroll-behavior: smooth;
+  background-size: 100%;
+  background-repeat: repeat-y;
+  background-position: center;
+  justify-content: center;
 } 
 .navbar
 {
@@ -77,7 +80,7 @@ body
   }
   .get-to-know-us img
   {
-    max-width: 225px;
+    max-width: auto;
   }
 
   @keyframes arrow {
@@ -88,6 +91,10 @@ body
   .heading-line
   {
     width: 100%;
+  }
+  .text
+  {
+    position: relative;
   }
 .text p
 {
@@ -116,4 +123,263 @@ body
   font-size: 30px;
   font-family: Helvetica, sans-serif;
   color: #ffd35e;
+}
+
+.line-container {
+  position: relative;
+  width: 100%; 
+  height: 4px;
+  margin-left: 0; /* Starts from the left corner */
+}
+.line {
+  position: absolute;
+  height: 2px;
+  background-color: white;
+  width: 0;
+  top: 50%;
+  left: 0;
+  transform: translateY(-40%);
+  animation: draw-line 2s forwards;
+}
+.dot {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  animation: move-dot 2s forwards;
+}
+@keyframes draw-line {
+  to {
+    width: 100%;
+  }
+}
+@keyframes move-dot {
+  to {
+    left: 100%; 
+  }
+}
+.mirrored-line-container {
+  position: relative;
+  width: 100%; 
+  height: 4px;
+  margin-right: 0; /* Starts from the right corner */
+}
+
+.mirrored-line {
+  position: absolute;
+  height: 2px;
+  background-color: white;
+  width: 0;
+  top: 50%;
+  right: 0; /* Start from the right */
+  transform: translateY(-40%);
+  animation: draw-line-mirrored 2s forwards;
+}
+
+.mirrored-dot {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  right: 0; /* Start from the right */
+  transform: translate(50%, -50%);
+  animation: move-dot-mirrored 2s forwards;
+}
+
+@keyframes draw-line-mirrored {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes move-dot-mirrored {
+  to {
+    right: 100%; /* Moves the dot from right to left */
+  }
+}
+
+.our-mixes
+{
+  background-image: url(images/recipe-mixes-table.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  
+}
+#carouselExample img {
+  width: 100%; /* Make images take full width of the carousel */
+  height: 100%; /* Ensure the height is also 100% of the carousel */
+  object-fit: cover; /* Ensures images cover the entire carousel without stretching */
+}
+#carouselExample {
+  max-width: 100%; /* Set maximum width for the carousel */
+}
+.recipe-mixes-text {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-mixes-text img {
+  margin-bottom: 5px;
+}
+#text1 {
+  margin-bottom: 5px;
+
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 29px;
+}
+#text2 {
+  margin-bottom: 80px;
+
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 45px;
+  font-weight: bold;  
+}
+.mixes-button
+{
+  margin: 20px;
+  font-style: none ;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 190px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:red;
+  text-decoration: none; /* Remove underline */
+}
+.mixes-button:hover {
+  border: 1px solid white;
+  background-color: transparent;
+  transition: all 0.7s ease;
+  cursor: pointer;
+}
+.contact-and-apply
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  gap: 100px;
+  height: 640px;
+}
+.apply
+{
+  margin: 30px;
+  margin-top: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.join-family
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.newsletter
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.apply img{
+  height: 80px;
+  width: 80px;
+  margin: 20px;
+}
+.apply p
+{
+  font-size: 18px;
+  font-family:  Helvetica, sans-serif;
+  color: white;
+}
+
+.distribution
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 450px;
+  border-right: red solid 2px;
+  border-left: red solid 2px;
+}
+.distribution img
+{
+  height: 80px;
+  width: 85px;
+  margin :20px;
+}
+.search-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: row;
+  align-items: center; /* Center items vertically */
+  margin: 20px; /* Optional: Add some margin around the container */
+  color: white;
+}
+
+.search-box {
+  width: 200px; /* Set width */
+  height: 22px; /* Set height */
+  padding: 10px; /* Add some padding */
+  font-size: 16px; /* Adjust font size */
+  border: 1px solid #ccc; /* Border style */
+  color: white;
+  border-right: none;
+  background: transparent;
+}
+
+.search-button {
+  border:none;
+  border: white solid 1px;
+  border-left: none;
+  background-color: red; /* Red background */
+  height: 44px; /* Match height of the search box */
+  width: 80px; /* Set a fixed width for the button */
+  cursor: pointer; /* Change cursor on hover */
+  display: flex; /* Center the image */
+  align-items: center; /* Center image vertically */
+  justify-content: center; /* Center image horizontally */
+}
+@media (min-width: 768px) {
+  .red-border-md {
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+  }
+}
+.circle
+{
+  height:50px;
+  width:50px;
+  border-radius: 50%;
+  border: solid white 1px; /* White border */
+  margin: 0 10px; /* Space between icons */
+  display: flex; /* Allow for content inside */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  background-color: transparent; /* Or set a background color/image */
+}
+.horizontal-rule
+{
+  height: 1px;
+  width: 100%;
+  background-color: white;
 }
