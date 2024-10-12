@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shan Navbar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"/>
+
+      <!--JS LINk-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <div class="container-fluid d-flex align-items-center justify-content-center vh-100">
+        
+        <form id="gform">
+            <input id="name" type="text" name="name" />
+            <input id="email" type="text" name="email" />
+            <input id="address" type="text" name="address" />
+            <input id="city" type="text" name="city" />
+
+            <span id="error-message" style="display: none;">Query is Required </span>
+        <input type="submit">
+        </form>
+    </div>
+ 
+<script>
+window.onload = function(){
+var gform = document.getElementById("gform");
+gform.onsubmit = handleFormSubmit;
+}
+
+function handleFormSubmit(event){
+
+let name = document.getElementById("name");
+let email = document.getElementById("email");
+let address= document.getElementById("address");
+let city = document.getElementById("city");
+
+if
+(name.value && email.value && address.value && city.value)
+{
+    var validform = false;
+    if()
+
+    console.log("vlaid form");
+}
+else {
+console.log("Invalid Form");
+query.classList.add("error");
+let errorMessage = document.getElementById("error-message");
+errorMessage.style.display = "inline";
+event.preventDefault();
+}
+
+}
+</script>   
+
+
+  </body>
+</html>
