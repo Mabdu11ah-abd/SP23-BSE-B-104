@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>    
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+</head>
+
+    <nav class="navbar bg-dark navbar-expand-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">
+                <img src="https://clipground.com/images/laptop-logo-4.png" class="img-fluid" style="max-width: 150px;">
+                My Portfolio
+            </a>
+    
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                    <a class="nav-link text-white" href="#">Features</a>
+                    <a class="nav-link text-white" href="#">Pricing</a>
+                    <a class="nav-link disabled text-white" aria-disabled="true">Disabled</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section >
+       
+            <!--about me container-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6  bg-primary p-5">
+                      <div class="container align-items-center justify-content-center text-white">
+                          <h2 class=" text-center mb-5">
+                              About Me
+                          </h2>
+                          <p class="text-start fs-6">
+                              I’m a passionate software developer with experience in desktop and web application development. Skilled in technologies like .NET, JavaScript, and cloud platforms, I enjoy solving complex problems and creating user-friendly solutions. I’m continuously learning and exploring new tools to improve my craft. My goal is to build scalable and efficient systems that deliver value, while always striving to grow as a developer.
+                          </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="container">
+                            <img src="https://th.bing.com/th/id/OIP.fKc8b31m5sCAWB8kfm70xgHaFb?rs=1&pid=ImgDetMain" alt="Image did not loads" class="img-fluid">
+                        </div>
+                    </div>
+                  </div>
+            </div>
+     </section>
+     <section>
+        <div class="container-fluid p-5 text-center" style="background-color: whitesmoke;">
+            <h1 class="m-2">MY PROJECTS</h1>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="container">
+                            <img src="https://th.bing.com/th/id/OIP.mtDWeGXUJYCp5Mzb3ZOTzQHaFN?rs=1&pid=ImgDetMain" alt="hospital" class="img-fluid">
+                        </div>
+                        <button id="loadText" type="button" class="btn btn-primary btn-lg">Large button</button>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                        <div class="container d-flex align-items-center justify-content-center text-start" id="target1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="container">
+                            <img src="https://th.bing.com/th/id/OIP.vzBt_1Wbi_npypD5suYXEAHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="hospital" class="img-fluid">
+                        </div>
+                        <button id="loadText2" type="button" class="btn btn-primary btn-lg">Large button</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="container d-flex align-items-center justify-content-center text-center" id="target2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+     <script>
+        $(document).ready(function() {
+                // Function for the first button (loadText)
+    $("#loadText").click(function() {
+        $.get("Description1.txt", function(data) {
+            // Create a new paragraph element with the data
+            const newParagraph = $("<p></p>").text(data).hide(); // Hide initially
+            $("#target1").append(newParagraph);
+            newParagraph.fadeIn(500); // Fade in over 500ms
+        }).fail(function() {
+            const errorParagraph = $("<p>Error: File could not be loaded.</p>").hide();
+            $("#target1").append(errorParagraph);
+            errorParagraph.fadeIn(500);
+        });
+    });
+
+    // Function for the second button (loadText2)
+    $("#loadText2").click(function() {
+        $.get("Description2.txt", function(data) {
+            const newParagraph = $("<p></p>").text(data).hide(); // Hide initially
+            $("#target2").append(newParagraph);
+            newParagraph.fadeIn(500); // Fade in over 500ms
+        }).fail(function() {
+            const errorParagraph = $("<p>Error: File could not be loaded.</p>").hide();
+            $("#target2").append(errorParagraph);
+            errorParagraph.fadeIn(500);
+        });
+    });
+    });
+
+     </script>
+</body>
+</html>
