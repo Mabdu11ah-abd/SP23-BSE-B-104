@@ -58,68 +58,95 @@
             </div>
      </section>
      <section>
-        <div class="container-fluid p-5 text-center" style="background-color: whitesmoke;">
-            <h1 class="m-2">MY PROJECTS</h1>
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="container">
-                            <img src="https://th.bing.com/th/id/OIP.mtDWeGXUJYCp5Mzb3ZOTzQHaFN?rs=1&pid=ImgDetMain" alt="hospital" class="img-fluid">
-                        </div>
-                        <button id="loadText" type="button" class="btn btn-primary btn-lg">Large button</button>
+        <div class="container-fluid text-center text-white bg-secondary flex-column align-items-center p-5">
+         <h1 style="color: whitesmoke;" class="p-5">MY SKILLS</h1>
+            <div class="container">
+                
+            </div>
+            <div class="container d-flex align-items-center justify-content-between" style="background-color: #522bd4;">
+                <div class="container" style="background-color: #522bd4;">
+                    <h4 style="font-weight: bolder;" class="text-start">.NET DEVELOPMENT</h4>
+                    <p class="text-start">With a strong foundation in .NET, I have built robust, scalable applications for both desktop and web environments. My experience includes working with ASP.NET for web development, as well as WPF for building interactive desktop applications. I enjoy leveraging .NET’s extensive libraries and tools to create efficient solutions tailored to client needs.</p>
+                </div>
+                <img src="https://th.bing.com/th/id/OIP.F9tKuAOBmbOh6HYEHmBnrwHaHa?rs=1&pid=ImgDetMain" alt=".net logo"class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="container d-flex align-items-center justify-content-between" style="background-color: #edd84b;">
+                <div class="container">
+                    <h4 style="font-weight: bolder; color: black;" class="text-start">JAVASCRIPT AND FRONT END DEV</h4>
+                    <p class="text-start" style="font-weight: bold;">
+                        I have a solid understanding of JavaScript, along with frameworks like React and libraries such as jQuery. I specialize in building responsive, user-friendly interfaces with dynamic content using AJAX. I also have hands-on experience with Bootstrap for creating mobile-friendly layouts and ensuring cross-browser compatibility.
+                    </p>    
+                </div>
+                <img src="https://th.bing.com/th/id/OIP.0qThwGUlnULLAz8MTnN9QwHaHa?rs=1&pid=ImgDetMainhttps://th.bing.com/th/id/OIP.0qThwGUlnULLAz8MTnN9QwHaHa?rs=1&pid=ImgDetMain" alt=".net logo"class="img-fluid" style="max-width: 200px;">
+
+            </div>
+            <div class="container">
+
+            </div>
+        </div>
+     </section>
+     <div class="container-fluid p-5 text-center" style="background-color: whitesmoke;">
+        <h1 class="m-2">MY PROJECTS</h1>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container">
+                        <img src="https://th.bing.com/th/id/OIP.mtDWeGXUJYCp5Mzb3ZOTzQHaFN?rs=1&pid=ImgDetMain" alt="hospital" class="img-fluid">
                     </div>
-                    <div class="col-md-6 d-flex align-items-center justify-content-center">
-                        <div class="container d-flex align-items-center justify-content-center text-start" id="target1">
-                        </div>
+                    <button id="loadText" type="button" class="btn btn-primary btn-lg">Large button</button>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="container d-flex align-items-center justify-content-center text-start" id="target1">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="container">
-                            <img src="https://th.bing.com/th/id/OIP.vzBt_1Wbi_npypD5suYXEAHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="hospital" class="img-fluid">
-                        </div>
-                        <button id="loadText2" type="button" class="btn btn-primary btn-lg">Large button</button>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container">
+                        <img src="https://th.bing.com/th/id/OIP.vzBt_1Wbi_npypD5suYXEAHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="hospital" class="img-fluid">
                     </div>
-                    <div class="col-md-6">
-                        <div class="container d-flex align-items-center justify-content-center text-center" id="target2">
-                        </div>
+                    <button id="loadText2" type="button" class="btn btn-primary btn-lg">Large button</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="container d-flex align-items-center justify-content-center text-center" id="target2">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+     <section>
+
+     </section>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
      <script>
         $(document).ready(function() {
-                // Function for the first button (loadText)
-    $("#loadText").click(function() {
-        $.get("Description1.txt", function(data) {
-            // Create a new paragraph element with the data
-            const newParagraph = $("<p></p>").text(data).hide(); // Hide initially
-            $("#target1").append(newParagraph);
-            newParagraph.fadeIn(500); // Fade in over 500ms
-        }).fail(function() {
-            const errorParagraph = $("<p>Error: File could not be loaded.</p>").hide();
-            $("#target1").append(errorParagraph);
-            errorParagraph.fadeIn(500);
-        });
-    });
+            // Function for the first button (loadText)
+            $("#loadText").click(function() {
+                $.get("Description1.txt", function(data) {
+                    const newParagraph = $("<p></p>").text(data).hide(); // Hide initially
+                    $("#target1").append(newParagraph);
+                    newParagraph.fadeIn(500); // Fade in over 500ms
+                }).fail(function() {
+                    const errorParagraph = $("<p>Error: File could not be loaded.</p>").hide();
+                    $("#target1").append(errorParagraph);
+                    errorParagraph.fadeIn(500);
+                });
+            });
 
-    // Function for the second button (loadText2)
-    $("#loadText2").click(function() {
-        $.get("Description2.txt", function(data) {
-            const newParagraph = $("<p></p>").text(data).hide(); // Hide initially
-            $("#target2").append(newParagraph);
-            newParagraph.fadeIn(500); // Fade in over 500ms
-        }).fail(function() {
-            const errorParagraph = $("<p>Error: File could not be loaded.</p>").hide();
-            $("#target2").append(errorParagraph);
-            errorParagraph.fadeIn(500);
+            // Function for the second button (loadText2)
+            $("#loadText2").click(function() {
+                $.get("Description2.txt", function(data) {
+                    const newParagraph = $("<p></p>").text(data).hide(); // Hide initially
+                    $("#target2").append(newParagraph);
+                    newParagraph.fadeIn(500); // Fade in over 500ms
+                }).fail(function() {
+                    const errorParagraph = $("<p>Error: File could not be loaded.</p>").hide();
+                    $("#target2").append(errorParagraph);
+                    errorParagraph.fadeIn(500);
+                });
+            });
         });
-    });
-    });
-
      </script>
 </body>
 </html>
