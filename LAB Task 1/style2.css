@@ -76,6 +76,8 @@ body
   {
     background-image: url(images/know-us-bg.png);
     background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
 
   }
   .get-to-know-us img
@@ -333,12 +335,13 @@ body
   flex-direction: row;
   align-items: center; /* Center items vertically */
   margin: 20px; /* Optional: Add some margin around the container */
+  height: 44px;
   color: white;
 }
 
 .search-box {
   width: 200px; /* Set width */
-  height: 22px; /* Set height */
+  height: 44px; /* Set height */
   padding: 10px; /* Add some padding */
   font-size: 16px; /* Adjust font size */
   border: 1px solid #ccc; /* Border style */
@@ -468,9 +471,38 @@ body
           background-color: #343a40; /* Dark background */
           color: white;
           transition: right 0.3s; /* Smooth transition */
-          padding: 20px;
+      
           z-index: 1050; /* Above other elements */
       }
       .sidebar.active {
           right: 0; /* Show sidebar */
       }
+.know-us-icon
+{
+  width: 50%;
+}@media (max-width: 768px) {
+  .know-us-icon {
+    width: 30%; /* Change the size as needed */
+
+  }
+}
+.sidebar {
+  background-color: #3f4c4f; /* Dark background for the sidebar */
+  height: 100vh; /* Full height for sidebar */
+ /* Padding inside the sidebar */
+}
+.sidebar-item
+{
+  text-justify: center;
+  background-color: #3f4c4f;
+  border-top: #e8c25d solid 1px;
+  border-bottom: #e8c25d solid 1px;
+  padding: 10px;
+  min-height: 45px;
+  color: #e8c25d;
+  text-align: center;
+}
+#sidebar {
+  height: 100vh; /* Full height of the viewport */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
