@@ -1,0 +1,533 @@
+.dropdown-toggle {
+    color: white;
+    background-color: transparent;
+  }
+  .white-border
+  {
+    border:solid 1px white;
+  }
+  .dropdown-menu {
+    background-color:#3f4c4f;
+    color: white;
+    font-weight: bolder;
+    gap: 20px;
+  }
+
+  .nav-link,
+  .dropdown-item {
+    font-size: 16px;
+    color: white !important;
+  }
+
+.navbar-brand img{
+    height: 60px;
+}
+body
+{
+  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/bg.jpg);
+  scroll-behavior: smooth;
+  background-size: 100%;
+  background-repeat: repeat-y;
+  background-position: center;
+  justify-content: center;
+} 
+.navbar
+{
+    background-image: url(images/bg.jpg);
+    background-position: center;
+}
+.scroll-icon
+{
+    height: 40px;
+    width: 40px;
+    border: 1px solid yellow;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 38px;
+}
+.scroll-down
+{
+    animation: bob is infinite;
+
+}
+
+  .fa {
+    font-size: 35px;
+    color: yellow;
+    font-weight: bolder;
+    bottom: 27px;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border:solid rgb(232, 214, 14) 2px;
+    animation-name:arrow;
+    animation-duration:1s;
+    animation-timing-function:linear;
+    animation-delay:0s;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-play-state:running;
+  }
+  
+
+  .get-to-know-us
+  {
+    background-image: url(images/know-us-bg.png);
+    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+  }
+  .get-to-know-us img
+  {
+    max-width: auto;
+  }
+
+  @keyframes arrow {
+    0% { bottom: 0; }
+    75% { bottom: 50px; }
+    100% { bottom: 0; }
+  }
+  .heading-line
+  {
+    width: 100%;
+  }
+  .text
+  {
+    position: relative;
+  }
+.text p
+{
+  margin: 0px;
+  padding: 0px;
+}
+.halal-row p
+{
+  font-size: 28px;
+  font-weight: bold;
+  font-family: monospace;
+  color: white;
+}
+.first-para {
+  font-size: 30px;
+  font-family: Helvetica, sans-serif;
+  color: white;
+}
+.second-para {
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #ffd35e;
+}
+.third-para {
+  font-size: 30px;
+  font-family: Helvetica, sans-serif;
+  color: #ffd35e;
+}
+
+.line-container {
+  position: relative;
+  width: 100%; 
+  height: 4px;
+  margin-left: 0; /* Starts from the left corner */
+}
+.line {
+  position: absolute;
+  height: 2px;
+  background-color: white;
+  width: 0;
+  top: 50%;
+  left: 0;
+  transform: translateY(-40%);
+  animation: draw-line 2s forwards;
+}
+.dot {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  animation: move-dot 2s forwards;
+}
+@keyframes draw-line {
+  to {
+    width: 100%;
+  }
+}
+@keyframes move-dot {
+  to {
+    left: 100%; 
+  }
+}
+.mirrored-line-container {
+  position: relative;
+  width: 100%; 
+  height: 4px;
+  margin-right: 0; /* Starts from the right corner */
+}
+
+.mirrored-line {
+  position: absolute;
+  height: 2px;
+  background-color: white;
+  width: 0;
+  top: 50%;
+  right: 0; /* Start from the right */
+  transform: translateY(-40%);
+  animation: draw-line-mirrored 2s forwards;
+}
+
+.mirrored-dot {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  right: 0; /* Start from the right */
+  transform: translate(50%, -50%);
+  animation: move-dot-mirrored 2s forwards;
+}
+
+@keyframes draw-line-mirrored {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes move-dot-mirrored {
+  to {
+    right: 100%; /* Moves the dot from right to left */
+  }
+}
+
+.our-mixes
+{
+  background-image: url(images/recipe-mixes-table.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  
+}
+#carouselExample img {
+  width: 100%; /* Make images take full width of the carousel */
+  height: 100%; /* Ensure the height is also 100% of the carousel */
+  object-fit: cover; /* Ensures images cover the entire carousel without stretching */
+}
+#carouselExample {
+  max-width: 100%; /* Set maximum width for the carousel */
+}
+.recipe-mixes-text {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-mixes-text img {
+  margin-bottom: 5px;
+}
+#text1 {
+  margin-bottom: 5px;
+
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 29px;
+}
+#text2 {
+  margin-bottom: 80px;
+
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 45px;
+  font-weight: bold;  
+}
+.mixes-button
+{
+  margin: 20px;
+  font-style: none ;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 190px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:red;
+  text-decoration: none; /* Remove underline */
+}
+.mixes-button:hover {
+  border: 1px solid white;
+  background-color: transparent;
+  transition: all 0.7s ease;
+  cursor: pointer;
+}
+.contact-and-apply
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  gap: 100px;
+  height: 640px;
+}
+.apply
+{
+  margin: 30px;
+  margin-top: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.join-family
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.newsletter
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.apply img{
+  height: 80px;
+  width: 80px;
+  margin: 20px;
+}
+.apply p
+{
+  font-size: 18px;
+  font-family:  Helvetica, sans-serif;
+  color: white;
+}
+
+.distribution
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 450px;
+  border-right: red solid 2px;
+  border-left: red solid 2px;
+}
+.distribution img
+{
+  height: 80px;
+  width: 85px;
+  margin :20px;
+}
+.search-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: row;
+  align-items: center; /* Center items vertically */
+  margin: 20px; /* Optional: Add some margin around the container */
+  height: 44px;
+  color: white;
+}
+
+.search-box {
+  width: 200px; /* Set width */
+  height: 44px; /* Set height */
+  padding: 10px; /* Add some padding */
+  font-size: 16px; /* Adjust font size */
+  border: 1px solid #ccc; /* Border style */
+  color: white;
+  border-right: none;
+  background: transparent;
+}
+
+.search-button {
+  border:none;
+  border: white solid 1px;
+  border-left: none;
+  background-color: red; /* Red background */
+  height: 44px; /* Match height of the search box */
+  width: 80px; /* Set a fixed width for the button */
+  cursor: pointer; /* Change cursor on hover */
+  display: flex; /* Center the image */
+  align-items: center; /* Center image vertically */
+  justify-content: center; /* Center image horizontally */
+}
+@media (min-width: 768px) {
+  .red-border-md {
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+  }
+}
+.circle
+{
+  height:50px;
+  width:50px;
+  border-radius: 50%;
+  border: solid white 1px; /* White border */
+  margin: 0 10px; /* Space between icons */
+  display: flex; /* Allow for content inside */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  background-color: transparent; /* Or set a background color/image */
+}
+.horizontal-rule
+{
+  height: 1px;
+  width: 100%;
+  background-color: white;
+}
+.custom-button
+{
+  min-width: 40px;
+  border: 1px solid white;
+  background-color: transparent;
+  border-left: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.custom-search
+{
+  height: 50px;
+  border: 1px solid white;
+  background-color: transparent;
+  border-right: none;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.custom-list a{
+  display: inline-block;
+  margin: 10px;
+  width: 185px;
+  height: 35px;
+  border: 1px solid yellow; /* Yellow border */
+  border-radius: 5px; /* Small border radius */
+  text-align: center;
+  background-color: transparent; /* Transparent background */
+  color: white; /* White text */
+  font-weight: bold; /* Bold text */
+  font-size: 16px; /* Font size */
+  line-height: 35px; /* Center text vertically */
+  text-decoration: none; /* Remove underline */
+}
+.custom-search
+{
+  max-width: 400PX;
+  height: 50px;
+  width: 100%;
+  border: 1px solid white;
+  background-color: transparent;
+  border-right: none;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.fa-bars
+{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  border: yellow solid 1px;
+  border-radius: 5px;
+}
+.custom-button
+{
+  font-size: x-large;
+  min-width: 40px;
+  border: 1px solid white;
+  background-color: transparent;
+  border-left: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+        /* Custom styles for the sidebar */
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: -250px; /* Initially hidden */
+          width: 250px;
+          height: 100%;
+          background-color: #343a40; /* Dark background */
+          color: white;
+          transition: right 0.3s; /* Smooth transition */
+      
+          z-index: 1050; /* Above other elements */
+      }
+      .sidebar.active {
+          right: 0; /* Show sidebar */
+      }
+.know-us-icon
+{
+  width: 50%;
+}@media (max-width: 768px) {
+  .know-us-icon {
+    width: 30%; /* Change the size as needed */
+
+  }
+}
+.sidebar {
+  background-color: #3f4c4f; /* Dark background for the sidebar */
+  height: 100vh; /* Full height for sidebar */
+ /* Padding inside the sidebar */
+}
+.sidebar-item
+{
+  text-align: center;
+  background-color: #3f4c4f; /* Match sidebar background */
+  border-top: #e8c25d solid 1px;
+  border-bottom: #e8c25d solid 1px;
+  padding: 10px 0; /* Adjusted padding for consistency */
+  min-height: 45px;
+  color: #e8c25d;
+  width: 100%; /* Ensure full width */
+}
+#sidebar {
+  height: 100vh; /* Full height of the viewport */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+.accordion-item {
+  background-color: #3f4c4f; /* Match sidebar background */
+}
+
+.accordion-header {
+  margin: 0; /* Ensure no margin for accordion header */
+}
+
+.accordion-body {
+  background-color: #3f4c4f; /* Match background color of accordion body */
+  border-top: #e8c25d solid 1px; /* Add border to the top of the body */
+}
+.sidebar-button
+{
+  background: transparent;  /* Use transparent background */
+  border: none;             /* Remove border */
+  padding: 0;               /* Remove padding */
+  margin: 0;                /* Remove margin */
+  color: #e8c25d;           /* Set text color to match your theme */
+  font: inherit;            /* Inherit font styling */
+  text-align: center;         /* Align text to the left */
+  cursor: pointer;          
+}
