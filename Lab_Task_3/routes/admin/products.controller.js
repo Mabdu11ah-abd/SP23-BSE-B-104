@@ -3,11 +3,7 @@ let router = express.Router();
 let Product = require("../../models/product.model");
 
 router.get("/admin/products", async (req, res) => {
-    let products = [{
-        title:"My title",
-        description: "My string",
-        price: 5,
-    }]
+    let products = await Product.find();
     return res.render("admin/products", {
       layout: "adminlayout",
       pageTitle: "Manage Shan Foods",
@@ -40,6 +36,7 @@ router.get("/admin/products/edit/:id", async (req, res) => {
       product,
     });
 });
+
 router.post("/admin/products/edit/:id", async (req, res) => {
     let product = await Product.findById(req.params.id);
     product.title = req.body.title;
@@ -48,4 +45,5 @@ router.post("/admin/products/edit/:id", async (req, res) => {
     await product.save();
     return res.redirect("/admin/products");
   });
+
 module.exports = router;

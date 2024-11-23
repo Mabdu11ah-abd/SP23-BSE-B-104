@@ -7,6 +7,7 @@ server.set("view engine", "ejs");
 server.use(expressLayouts);
 server.use(express.static("public"));
 
+
 server.use(express.urlencoded());
 let adminProductsRouter = require("./routes/admin/products.controller");
 server.use(adminProductsRouter);
