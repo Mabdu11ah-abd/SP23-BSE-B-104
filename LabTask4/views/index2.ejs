@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shan Navbar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg flex-grow-1 p-1 py-3">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+      <a class="navbar-brand mx-2 " href="#">
+        <img class="img-fluid" src="images/logo.png" alt="Shan Logo" />
+    </a>
+        <div class="flex-column d-flex-md-row flex-grow-1">
+          <div
+            class="container-fluid search-row d-flex justify-content-end align-items-center"
+          >
+            <div class="justify-content-end d-flex w-100 align-items-center">
+              <form class="d-flex search-bar me-2 w-75 justify-content-end">
+                <input
+                  class="custom-search"
+                  type="search"
+                  placeholder="Search..."
+                  aria-label="Search"
+                />
+                <button class="custom-button text-white">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </div>
+            <button id="sidebarToggle" class="btn d-lg-none" type="button">
+              <i class="fa-solid fa-bars" style="color: #ffd43b"></i>
+            </button>
+            <div class="dropdown mx-2 d-none d-lg-flex">
+              <button
+                class="btn dropdown-toggle white-border"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pakistan
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Pakistan</a></li>
+                <li><a class="dropdown-item" href="#">Africa</a></li>
+                <li><a class="dropdown-item" href="#">Australia</a></li>
+                <li><a class="dropdown-item" href="#">North America - Canada</a></li>
+                <li><a class="dropdown-item" href="#">Asia</a></li>
+                <li><a class="dropdown-item" href="#">Rest of South Asia</a></li>
+                <li><a class="dropdown-item" href="#">North America - USA</a></li>
+                <li><a class="dropdown-item" href="#">Europe</a></li>
+                <li><a class="dropdown-item" href="#">Middle East GCC</a></li>
+                <li><a class="dropdown-item" href="#">Middle East - Saudia Arabia</a></li>
+                <li><a class="dropdown-item" href="#">Other Countries</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse mt-2" id="navbarNav">
+            <ul class="navbar-nav justify-content-end w-100">
+              <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Our Management
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Our Founder</a></li>
+                  <li><a class="dropdown-item" href="#">Board Of Directors</a></li>
+                  <li><a class="dropdown-item" href="#">Managing Committee</a></li>
+
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shan Shares</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown2"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Brands
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                  <li><a class="dropdown-item" href="#">Shan</a></li>
+                  <li><a class="dropdown-item" href="#">Shoop</a></li>
+                  <li><a class="dropdown-item" href="#">OatSome</a></li>
+                  <li><a class="dropdown-item" href="#">Korean Noodles</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Communications</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown3"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                  <li><a class="dropdown-item" href="#">Query/complaint</a></li>
+                  <li><a class="dropdown-item" href="#">Become a Distributor</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="d-none d-xl-flex">
+          <a class="navbar-brand" href="">
+            <img src="images/shan-kitchen-logo (1).png" alt="Shan Logo" />
+          </a>
+          <a class="navbar-brand" href="">
+            <img src="images/shan-specialist-logo.png" alt="Shan Logo" />
+          </a>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      </div>
+    </nav>
+    <!--carousel section -->
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="images/shanfoods-carousel-img1.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="images/shanfood-carousel-img-2.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="images/shanfoods-carousel-img3.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="images/shanfoods-carousel-img4.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+      </div>
+    </div>
+    <section class="p-4 m-3">
+      <div
+        class="p-2 d-flex align-items-center justify-content-center text-white gap-1 font-monospace fs-4"
+      >
+        SCROLL
+        <i class="fa fa-arrow-down mx-2"></i>
+        DOWN
+      </div>
+
+      <!-- Icon in the middle -->
+
+      <!-- Container for DOWN -->
+    </section>
+    <section class="my-5 get-to-know-us">
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center gap-0"
+      >
+        <div class="container-fluid">
+          <div class="line-container">
+            <div class="line"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+        <div class="text text-center mx-5">
+          <p class="first-para">GET TO</p>
+          <p class="second-para">KNOW</p>
+          <p class="third-para">US</p>
+        </div>
+        <div class="container-fluid">
+          <div class="mirrored-line-container">
+            <div class="mirrored-line"></div>
+            <div class="mirrored-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid text-center">
+        <div class="row mt-5 mb-5 py-5 halal-row">
+          <div class="col-sm-12 col-md-4 my-3 py-5">
+            <img class=" know-us-icon" src="images/halal-icon2.png" alt="" />
+            <p>Halal</p>
+          </div>
+          <div class="col-sm-12 col-md-4 my-3 py-5">
+            <img class=" know-us-icon" src="images/hundred-icon1.png" alt="" />
+            <p>Suitable For</p>
+            <p>Vegetarians</p>
+          </div>
+          <div class="col-sm-12 col-md-4 my-3 py-5">
+            <img class=" know-us-icon" src="images/hundred-icon2.png" alt="" />
+            <p>Real And</p>
+            <p>Authentic taste</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-5 our-mixes">
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center gap-0 my-5"
+      >
+        <div class="container-fluid">
+          <div class="line-container">
+            <div class="line"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+        <div class="text text-center mx-5">
+          <p class="first-para">RECIPE</p>
+          <p class="second-para">MIXES</p>
+        </div>
+        <div class="container-fluid">
+          <div class="mirrored-line-container">
+            <div class="mirrored-line"></div>
+            <div class="mirrored-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container text-center">
+        <div class="row mt-5">
+          <div class="col-md-4">
+            <div class="recipe-mixes-text">
+              <img
+                src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/logo.png"
+                alt="logo"
+              />
+              <p id="text1">RECIPE</p>
+              <p id="text2">MIXES</p>
+              <a class="mixes-button">EXPLORE NOW</a>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div id="carouselExample" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/our-mix-banners/sauces.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/our-mix-banners/recipe-mixes-jars.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/our-mix-banners/plain-spices-banner.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/our-mix-banners/paste-jars.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/our-mix-banners/accompaniments-jars.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/our-mix-banners/desserts-banner.png  "
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/our-mix-banners/shoop.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/our-mix-banners/salt-banner-pk.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center"
+      ></div>
+    </section>
+    <div
+      class="container-fluid d-flex align-items-center justify-content-center my-2 custom-list"
+    >
+      <ul class="d-flex flex-wrap justify-content-center list-unstyled">
+        <li><a href="#">Cooking Sauces</a></li>
+        <li><a href="#">Recipe Mixes</a></li>
+        <li><a href="#">Plain Spices</a></li>
+        <li><a href="#">Cooking Paste</a></li>
+        <li><a href="#">Accompaniments</a></li>
+        <li><a href="#">Desserts</a></li>
+        <li><a href="#">Shoop</a></li>
+        <li><a href="#">Salt</a></li>
+      </ul>
+    </div>
+    <section class="my-5">
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center gap-0"
+      >
+        <div class="container-fluid">
+          <div class="line-container">
+            <div class="line"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+        <div class="text text-center mx-5">
+          <p class="first-para">OUR</p>
+          <p class="second-para">GLOBAL</p>
+          <p class="third-para">PRESENCE</p>
+        </div>
+        <div class="container-fluid">
+          <div class="mirrored-line-container">
+            <div class="mirrored-line"></div>
+            <div class="mirrored-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img
+          class="map-image img-fluid"
+          src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/map-image.png"
+          alt="map"
+        />
+      </div>
+    </section>
+    <footer>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md my-2">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white fs-4"
+            >
+              <img
+                src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/footer/join-family-icon.png"
+                alt="family icon"
+              />
+              <p>Join Our</p>
+              <p>Family</p>
+              <a class="mixes-button">EXPLORE NOW</a>
+            </div>
+          </div>
+          <div class="col-md my-2">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white fs-4 red-border-md"
+            >
+              <img
+                src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/footer/partner-icon.png"
+                alt="distibution icon"
+              />
+              <p>Become Our</p>
+              <p>Distribution Partner</p>
+              <a class="mixes-button">EXPLORE NOW</a>
+            </div>
+          </div>
+          <div class="col-md my-2">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white fs-4"
+            >
+              <img
+                src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/footer/subscribe-icon.png"
+                alt="distibution icon"
+              />
+              <p>Newsletter</p>
+              <p>Subscription</p>
+
+              <div class="search-container ">
+                <input type="text" class="search-box" placeholder="Email Address" />
+                <button class="search-button">
+                  <img
+                    src="https://www.shanfoods.com/wp-content/themes/shan_foods/img/footer/right-arrow.png"
+                    alt="Search"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container d-flex flex-column align-items-center justify-content-center gap-2 my-5"
+      >
+        <div class="container d-flex align-items-center justify-content-center">
+          <h5 class="text-white fs-3">Quick Links</h5>
+        </div>
+        <div
+          class="container-fluid d-flex align-items-center justify-content-center"
+        >
+          <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+              <a class="text-white nav-link fs-5" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-white nav-link fs-5" href="#">Career</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-white nav-link fs-5" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-white nav-link fs-5" href="#">SiteMap</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-white nav-link fs-5" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-white nav-link fs-5" href="#">FAQS</a>
+            </li>
+          </ul>
+        </div>
+        <div class="container d-flex align-items-center justify-content-center">
+          <h5 class="text-white fs-3">Get Social With Us</h5>
+        </div>
+        <div
+          class="container align-items-center d-flex justify-content-center gap-4"
+        >
+          <div class="fs-2 circle">
+            <i class="fa-brands fa-instagram" style="color: #ffffff"></i>
+          </div>
+          <div class="fs-2 text-white circle">
+            <i class="fa-brands fa-facebook"></i>
+          </div>
+          <div class="fs-2 text-white circle">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+        <div class="container-fluid py-3">
+          <div class="horizontal-rule"></div>
+        </div>
+        <div class="container-fluid text-center">
+          <div class="row align-items-center justify-content-between">
+            <div
+              class="col-md d-flex text-white gap-4 align-items-center justify-content-center"
+            >
+              <i class="fa-solid fa-location-dot"></i>
+              <p>29, Sector 23, Korangi Industrial Area, Karachi, Pakistan</p>
+            </div>
+            <div
+              class="col-md d-flex text-white gap-4 align-items-center justify-content-center"
+            >
+              <i class="fa-solid fa-phone-volume"></i>
+              <p>021-35053076-79</p>
+            </div>
+            <div
+              class="col-md d-flex text-white gap-4 align-items-center justify-content-center"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+              <p>info@shanfoods.com | consumerservices@shanfoods.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid py-3">
+          <div class="horizontal-rule"></div>
+        </div>
+        <div class="container-fluid my-0 mx-5 d-flex justify-content-between">
+          <p class="text-white fs-6">Copyright © 2024, Shan Foods</p>
+          <p class="text-white fs-6">Website Powered by Team Reactivate</p>
+        </div>
+      </div>
+    </footer>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar d-flex flex-column justify-content-start align-items-center mx-0">
+      <a class="navbar-brand mx-2 my-5" href="#">
+        <img class="img-fluid" src="images/logo.png" alt="Shan Logo" />
+      </a>
+      
+      <div class="accordion accordion-flush w-100 text-center" id="accordian-1-parent">
+        <div class="accordion-item 2-100">
+          <h2 class="accordion-header w-100">
+            <button class=" sidebar-button fs-6 w-100 m-0 p-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Management <i class="fa-solid fa-caret-down"></i>
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse w-100" data-bs-parent="#accordian-1-parent">
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Our Founders
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Board Of Directors
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Managing Committee
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-item fs-6 w-100 m-0 p-3">
+        Shan Shares
+      </div>
+      <div class="accordion accordion-flush w-100 text-center" id="accordian-2-parent">
+        <div class="accordion-item 2-100">
+          <h2 class="accordion-header w-100">
+            <button class=" sidebar-button fs-6 w-100 m-0 p-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseOne">
+              Brands <i class="fa-solid fa-caret-down"></i>
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse w-100" data-bs-parent="#accordian-2-parent">
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              shan
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              shoop
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              oatsome
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              korean noodles
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-item fs-6 w-100 m-0 p-3">
+        Shop
+      </div>
+      <div class="sidebar-item fs-6 w-100 m-0 p-3">
+        Communications  
+      </div>
+      <div class="sidebar-item fs-6 w-100 m-0 p-3">
+        Media
+      </div>
+      <div class="sidebar-item fs-6 w-100 m-0 p-3">
+        Careers
+      </div>
+      <div class="accordion accordion-flush w-100 text-center" id="accordian-4-parent">
+        <div class="accordion-item 2-100">
+          <h2 class="accordion-header w-100">
+            <button class=" sidebar-button fs-6 w-100 m-0 p-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapseOne">
+              Contact Us <i class="fa-solid fa-caret-down"></i>
+            </button>
+          </h2>
+          <div id="flush-collapsefour" class="accordion-collapse collapse w-100" data-bs-parent="#accordian-4-parent">
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Query/Complaint
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Become A Distributor
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion accordion-flush w-100 text-center" id="accordian-3-parent" style="border-top: solid 1px #e8c25d;">
+        <div class="accordion-item 2-100">
+          <h2 class="accordion-header w-100">
+            <button class=" sidebar-button fs-6 w-100 m-0 p-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseOne">
+              Locations <i class="fa-solid fa-caret-down"></i>
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse w-100" data-bs-parent="#accordian-3-parent" >
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Africa
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Australia
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              North America - Canada
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Asia
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Rest of South Asia
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              North America - USA
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Europe
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Middle East GCC
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Middle East -  Saudia Arabia
+            </div>
+            <div class="sidebar-item fs-6 w-100 m-0 ">
+              Other Countries
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-item fs-6 w-100 m-0 p-3">
+        <a class="navbar-brand" href="">
+          <img src="images/shan-kitchen-logo (1).png" alt="Shan Logo" />
+        </a>
+      </div>
+      <div class="sidebar-item fs-6 w-100 m-0 p-3">
+        <a class="navbar-brand" href="">
+          <img src="images/shan-kitchen-logo (1).png" alt="Shan Logo" />
+        </a>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      // Toggle sidebar visibility
+      $("#sidebarToggle").on("click", function () {
+        $("#sidebar").toggleClass("active");
+      });
+
+      $(document).on('click', function(event) {
+            // Check if the click is inside the sidebar or on the toggle button
+            if (!$(event.target).closest('#sidebar, #sidebarToggle').length) {
+                $('#sidebar').removeClass('active');
+            }
+        });
+
+    </script>
+
+  </body>
+</html>

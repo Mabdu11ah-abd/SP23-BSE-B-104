@@ -5,6 +5,7 @@ let server = express();
 server.set("view engine", "ejs");
 
 server.use(expressLayouts);
+
 server.use(express.static("public"));
 
 

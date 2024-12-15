@@ -7,20 +7,16 @@ server.set("view engine", "ejs");
 server.use(expressLayouts);
 server.use(express.static("public"));
 
-
 server.use(express.urlencoded());
-let adminProductsRouter = require("./routes/admin/products.controller");
-server.use(adminProductsRouter);
-let adminCategoreisRouter = require("./routes/admin/categories.controller");
-server.use(adminCategoreisRouter);
+
+let homePageRouter = require("./route/homePageRouter.controller");
 
 server.get("/", (req, res) => {
-  return res.send(res.render("index2"));
+  return res.render("homepage");
 });
-//admin panel is accessible at /admin/products
 
 //mongodb connection 
-mongoose.connect("mongodb://localhost:27017")
+mongoose.connect("mongodb+srv://iamabdullahforu:PsYR3xIqCaxlSZ5v@shanfoodsproject.gwpek.mongodb.net/NewTest?retryWrites=true&w=majority&appName=ShanFoodsProject")
 .then(() => {
   console.log("MongoDB connected successfully");
 })
