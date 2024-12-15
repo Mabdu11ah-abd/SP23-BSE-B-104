@@ -1,6 +1,7 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts"); // Make sure this matches throughout the code
 const mongoose = require("mongoose");
+
 let server = express();
 server.set("view engine", "ejs");
 
@@ -14,6 +15,9 @@ let adminProductsRouter = require("./routes/admin/products.controller");
 server.use(adminProductsRouter);
 let adminCategoreisRouter = require("./routes/admin/categories.controller");
 server.use(adminCategoreisRouter);
+
+let cloudinarySetupRouter = require("./routes/cloudinarySetup.controller");
+server.use(cloudinarySetupRouter);
 
 server.get("/", (req, res) => {
   return res.send(res.render("index2"));
