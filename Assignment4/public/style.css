@@ -1,0 +1,630 @@
+* {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/bg.jpg);
+  scroll-behavior: smooth;
+  background-size: 100%;
+  background-repeat: repeat-y;
+  background-position: center;
+  justify-content: center;
+}
+
+.navbar {
+  width: 100%;
+  height: 120px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  margin: 20px;
+  padding: 10px;
+  width: 10%;
+  height: 40px;
+}
+.nav-logo img{
+  padding: 5px;
+  width: 60%;
+  min-width: 80px;
+}
+.searchMenu {
+  width: 80%;
+  align-items: center;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  float: right;
+}
+
+.search-input {
+  outline: none;
+  margin: 20px;
+  margin-right: 0px;
+  background: transparent;
+  border: 1px solid white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: none;
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  padding: 5px;
+}
+.search-icon {
+  margin-right: 40px;
+  font-size: x-large;
+  width: 80px;
+  height: 40px;
+  border: 1px solid white;
+  border-left: none;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.location-selector {
+  display: flex;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid white;
+  width: 200px;
+  height: 35px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  padding: 3px;
+  font-size: large;
+  margin: 20px;
+}
+
+.topRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.bottom-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.bottom-row select
+{
+  border: none;
+  font-size: 15px;
+  color: white;
+  padding: 15px;
+  background-color: transparent;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.2s;
+}
+.bottom-row select:hover 
+{
+  color: #f3c800; /* Optional: 
+  change text color for contrast */
+}
+.bottom-row select:focus {
+  outline: none; /* Remove focus outline */
+}
+.menu-options {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.menu-options li {
+  margin: 0;
+}
+.menu-options a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+.end-logos {
+  float: right;
+  justify-content: left;
+  width: 10%;
+  height: 100%;
+  display: flex;
+  margin: 50px;
+}
+.end-logos img
+{
+  height: 75px;
+  width: 75px;
+  margin: 20px;
+}
+.shan-specialist-logo {
+  height: 75px;
+  width: 75px;
+  margin: 20px;
+
+  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/shan-specialist-logo.png);
+  background-size: contain; /* Ensure the image covers the element */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+}
+.shan-kitchen-logo {
+  height: 75px;
+  width: 75px;
+  margin: 20px;
+  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/shan-kitchen-logo.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Carousel section */
+.carousel {
+  margin: 10px;
+  background-image: url(https://www.shanfoods.com/wp-content/plugins/main_slider/images/6521web_banner_all_rang.jpg);
+  background-size: cover;
+  height: 650px;
+  width: 100%;
+}
+/*scroll down section*/
+.scroll-down {
+  font-family: sans-serif;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.down-arrow {
+  margin: 30px;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ffd43b;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+.get-to-know-us {
+  position: relative;
+  background-size: cover;
+  align-items: center;
+  height: 530px;
+  width: 100%;
+}
+.white-circle
+{
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Optional shadow for visibility */
+}
+.image-container {
+  position: absolute; /* Position the image absolutely */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Make it full width */
+  z-index: -1; /* Send it to the back */
+}
+
+.image-container img {
+  width: 100%; /* Ensure the image scales to full width */
+  height: auto; /* Maintain aspect ratio */
+}
+.content-heading {
+  display: flex;
+  align-items: center;
+  height: 250px;
+  width: 100%;
+}
+.left-line {
+  height: 1px;
+  flex-grow: 1; /* Allows the line to expand */
+  background-color: white;
+  width: auto;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  width: 220px;
+  position: relative;
+}
+.text p {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+.right-line {
+  margin: 3px solid white;
+  height: 1px;
+  background-color: white;
+  flex-grow: 1; /* Allows the line to expand */
+}
+
+.first-para {
+  font-size: 30px;
+  font-family: Helvetica, sans-serif;
+  color: white;
+}
+.second-para {
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #ffd35e;
+}
+.third-para {
+  font-size: 30px;
+  font-family: Helvetica, sans-serif;
+  color: #ffd35e;
+}
+.content {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.content div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.content p {
+  margin: 5px 0;
+  color: white;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: bold;
+}
+.content img {
+  display: block;
+  height: 150px;
+  width: 150px;
+  contain: content;
+}
+.icon1 p {
+  margin: 5px 0;
+  color: white;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: bold;
+}
+/* recipe mixes*/
+.recipemixes {
+  background-image: url(https://www.shanfoods.com/wp-content/themes/shan_foods/img/recipe-mixes-table.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+.recipe-mixes-text {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-mixes-text img {
+  margin-bottom: 5px;
+}
+#text1 {
+  margin-bottom: 5px;
+
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 29px;
+}
+#text2 {
+  margin-bottom: 80px;
+
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 45px;
+  font-weight: bold;  
+}
+.mixes-button
+{
+  margin: 20px;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 190px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:red;
+}
+.recipe-carousel
+{
+  margin-left: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.map-image
+{
+  width: 100%;
+  height: auto; /* maintains aspect ratio */
+  max-width: 100%; /* ensures it doesn't overflow its container */
+  display: block; /* prevents bottom spacing */
+
+}
+.horizontal-rule
+{
+  height: 1px;
+  width: 100%;
+  background-color: white;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto; /* Adjust the width as needed */
+}
+
+.container ul {
+  display: flex;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container li {
+  margin: 10px 0; /* Space between list items */
+}
+
+.container a {
+  display: inline-block;
+  margin: 10px;
+  width: 185px;
+  height: 35px;
+  border: 1px solid yellow; /* Yellow border */
+  border-radius: 5px; /* Small border radius */
+  text-align: center;
+  background-color: transparent; /* Transparent background */
+  color: white; /* White text */
+  font-weight: bold; /* Bold text */
+  font-size: 16px; /* Font size */
+  line-height: 35px; /* Center text vertically */
+  text-decoration: none; /* Remove underline */
+}
+
+
+.contact-and-apply
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  gap: 100px;
+  height: 640px;
+}
+.apply
+{
+  margin: 30px;
+  margin-top: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.join-family
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.newsletter
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.apply img{
+  height: 80px;
+  width: 80px;
+  margin: 20px;
+}
+.apply p
+{
+  font-size: 18px;
+  font-family:  Helvetica, sans-serif;
+  color: white;
+}
+
+.distribution
+{
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 450px;
+  border-right: red solid 2px;
+  border-left: red solid 2px;
+}
+.distribution img
+{
+  height: 80px;
+  width: 85px;
+  margin :20px;
+}
+.search-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: row;
+  align-items: center; /* Center items vertically */
+  margin: 20px; /* Optional: Add some margin around the container */
+  color: white;
+}
+
+.search-box {
+  width: 200px; /* Set width */
+  height: 22px; /* Set height */
+  padding: 10px; /* Add some padding */
+  font-size: 16px; /* Adjust font size */
+  border: 1px solid #ccc; /* Border style */
+  color: white;
+  border-right: none;
+  background: transparent;
+}
+
+.search-button {
+  border:none;
+  border: white solid 1px;
+  border-left: none;
+  background-color: red; /* Red background */
+  height: 44px; /* Match height of the search box */
+  width: 80px; /* Set a fixed width for the button */
+  cursor: pointer; /* Change cursor on hover */
+  display: flex; /* Center the image */
+  align-items: center; /* Center image vertically */
+  justify-content: center; /* Center image horizontally */
+}
+.search-button img {
+  width: 30px; /* Set image width */
+  height: auto; /* Maintain aspect ratio */
+}
+.quicklinks
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.quicklinks h5
+{
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 25px;
+}
+.horizontal-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox to arrange items in a row */
+}
+
+.horizontal-list li {
+  margin-right: 20px; /* Space between items */
+}
+
+.horizontal-list a {
+  text-decoration: none; /* Remove underline */
+  color: white; /* White text */
+  font-size: 20px; /* Font size */
+}
+
+.horizontal-list a:hover {
+  text-decoration: underline; /* Optional: underline on hover */
+}
+.media-icons
+{
+  height: 90px;
+  width: 100%;
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center the icons horizontally */
+  align-items: center; /* Center the icons vertically */
+}
+.media-icons div
+{color: white;
+  font-size: 25px;
+  height: 50px;
+  width:50px;
+  border-radius: 50%;
+  border: solid white 1px; /* White border */
+  margin: 0 10px; /* Space between icons */
+  display: flex; /* Allow for content inside */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  background-color: transparent; /* Or set a background color/image */
+
+}
+.footer-div
+{
+  display: flex;
+  justify-content: center; /* Center contents horizontally */
+  align-items: center; /* Center contents vertically if needed */
+  flex-direction: column; /* Stack layers vertically */
+}
+.layer-1
+{
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  width: 80%;
+  color: white;
+  margin: 25px; 
+  margin-bottom:0px ;
+  padding: 5px 5px 0px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.layer-1 p
+{
+  width:305px;
+  text-align: center;
+}
+.layer-1 div
+{
+  display: flex; /* Use flexbox for each item */
+  align-items: center; /* Center the icon and text vertically */
+  margin: 10px; /* Optional: Add some space between items */
+  gap: 35px;
+}
+.contact p 
+{
+  text-align: left;
+}
+.information-div
+{
+  display: flex;
+  gap: 200px;
+}
+.layer-2 
+{
+  display: flex; /* Use flexbox */
+  margin-top: -5px;
+  justify-content: space-between; /* Position items at opposite ends */
+  width: 80%; /* Ensure it spans the full width */
+  padding: 5px; /* Optional: Add some padding */
+  box-sizing: border-box; /* Include padding in width calculation */
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.mixes-button:hover {
+  border: 1px solid white;
+  background-color: transparent;
+  transition: all 0.7s ease;
+  cursor: pointer;
+}

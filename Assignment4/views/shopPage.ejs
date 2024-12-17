@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalogue</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Product Catalogue</h1>
+    <div id="product-list" class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Product cards will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Fetch Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const productList = document.getElementById('product-list');
+
+      // Function to fetch all products
+      async function fetchProducts() {
+        try {
+          const response = await fetch('/api/products');
+          const products = await response.json();
+          return products;
+        } catch (error) {
+          console.error('Error fetching products:', error);
+        }
+      }
+
+      // Function to render product cards
+      function renderProducts(products) {
+        productList.innerHTML = ''; // Clear existing cards
+        products.forEach(product => {
+          const cardHTML = `
+            <div class="col">
+              <div class="card h-100">
+                <img src="${product.image || 'https://via.placeholder.com/150'}" class="card-img-top" alt="${product.title}">
+                <div class="card-body">
+                  <h5 class="card-title">${product.title}</h5>
+                  <p class="card-text">Price: $${product.price}</p>
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control quantity-input" placeholder="Quantity" value="1" min="1" data-id="${product._id}">
+                    <button class="btn btn-primary add-to-cart" data-id="${product._id}">Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          productList.insertAdjacentHTML('beforeend', cardHTML);
+        });
+      }
+
+      // Function to handle adding to cart
+      async function addToCart(productId, quantity) {
+        try {
+          const response = await fetch('/api/cart/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ productId, quantity })
+          });
+          const result = await response.json();
+          if (response.ok) {
+            alert('Product added to cart successfully!');
+          } else {
+            alert(`Error: ${result.message}`);
+          }
+        } catch (error) {
+          console.error('Error adding to cart:', error);
+        }
+      }
+
+      // Event Listener for Add to Cart buttons
+      productList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('add-to-cart')) {
+          const productId = event.target.getAttribute('data-id');
+          const quantityInput = document.querySelector(`.quantity-input[data-id="${productId}"]`);
+          const quantity = parseInt(quantityInput.value, 10) || 1;
+          addToCart(productId, quantity);
+        }
+      });
+
+      // Initialize: Fetch and render products
+      const products = await fetchProducts();
+      if (products) {
+        renderProducts(products);
+      } else {
+        productList.innerHTML = '<p class="text-danger">Failed to load products. Please try again later.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
