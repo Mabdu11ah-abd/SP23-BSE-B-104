@@ -1,17 +1,34 @@
 const express = require("express");
 let router = express.Router();
 let Product = require("../../models/product.model");
+let Category = require("../../models/category.model");
 
-
-router.get("/admin/products/create", (req, res) => {
+router.get("/admin/products/create", async (req, res) => {
   console.log("Method called ");
-  return res.render("admin/product-form", { layout: "adminlayout" });
+  try
+  {
+    const categories = await Category.find().populate('name');
+    res.render("./admin/product-form",{
+      layout: "adminLayout",
+      pageTitle:"Products creation",
+      categories,
+    })
+  }
+  catch(error)
+  {
+    console.log(error, "in create method")
+  } 
 });
 
 router.post("/admin/products/create", async (req, res) => {
   let data = req.body;
-  let newProduct = new Product(data);
-  newProduct.title = data.title;
+  console.log(req.body);
+  let newProduct = new Product({
+    title: req.body.title,
+    description: req.body.description,
+    price: req.body.price,
+    category: req.body.category,
+});
   await newProduct.save();
   return res.redirect("/admin/products");
 });
@@ -52,7 +69,7 @@ router.get('/admin/products', async (req, res) => {
   }
 });
 
-router.get("/api/products", async (req, res) => {
+router.get("/api/products/:page?", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Default page is 1
     const pageSize = parseInt(req.query.pageSize) || 5; // Default page size is 5
@@ -76,7 +93,7 @@ router.get("/api/products", async (req, res) => {
     const products = await Product.find(filter)
       .sort(sort)
       .limit(pageSize)
-      .skip((page - 1) * pageSize);
+      .skip((page - 1) * pageSize).populate('category');
 
     // Respond with the products and pagination data
     res.json({
@@ -89,9 +106,6 @@ router.get("/api/products", async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Error fetching products" });
   }
-
 });
-
-
 
 module.exports = router;

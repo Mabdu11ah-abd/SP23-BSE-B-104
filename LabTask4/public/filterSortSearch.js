@@ -57,11 +57,13 @@ $("#search-form").on("submit", function (e) {
     tableBody.empty();
   
     products.forEach((product) => {
+      console.log(product);
       tableBody.append(`
         <tr>
           <td>${product._id}</td>
           <td>${product.title}</td>
           <td>${product.price}</td>
+          <td>${product.category ? product.category.name : "No category"}</td>
           <td>${product.description}</td>
           <td>
             <a href="/admin/products/edit/${product._id}" class="btn btn-warning">Edit</a>
@@ -75,44 +77,54 @@ $("#search-form").on("submit", function (e) {
   }
   
   function renderPagination(totalPages, currentPage) {
-    const paginationDiv = $("#pagination");
-    paginationDiv.empty();
-  
-    const prevDisabled = currentPage === 1 ? "disabled" : "";
-    const nextDisabled = currentPage === totalPages ? "disabled" : "";
-  
-    let paginationHtml = `<ul class="pagination">`;
-  
-    // Previous button
+  const paginationDiv = $("#pagination");
+  paginationDiv.empty();
+
+  const query = $.param({
+    search: queryParams.search,
+    category: queryParams.category,
+    minPrice: queryParams.minPrice,
+    maxPrice: queryParams.maxPrice,
+    sortBy: queryParams.sortBy,
+    sortOrder: queryParams.sortOrder,
+    category: queryParams.category
+  });
+
+  const prevDisabled = currentPage === 1 ? "disabled" : "";
+  const nextDisabled = currentPage === totalPages ? "disabled" : "";
+
+  let paginationHtml = `<ul class="pagination justify-content-center">`;
+
+  // Previous button
+  paginationHtml += `
+    <li class="page-item ${prevDisabled}">
+      <a href="#" class="page-link" data-page="${currentPage - 1}">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>`;
+
+  // Page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    const activeClass = i === currentPage ? "active" : "";
     paginationHtml += `
-      <li class="page-item ${prevDisabled}">
-        <a href="#" class="page-link" data-page="${currentPage - 1}">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
+      <li class="page-item ${activeClass}">
+        <a href="#" class="page-link" data-page="${i}">${i}</a>
       </li>`;
-  
-    // Page numbers
-    for (let i = 1; i <= totalPages; i++) {
-      const activeClass = i === currentPage ? "active" : "";
-      paginationHtml += `
-        <li class="page-item ${activeClass}">
-          <a href="#" class="page-link" data-page="${i}">${i}</a>
-        </li>`;
-    }
-  
-    // Next button
-    paginationHtml += `
-      <li class="page-item ${nextDisabled}">
-        <a href="#" class="page-link" data-page="${currentPage + 1}">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>`;
-  
-    paginationHtml += `</ul>`;
-  
-    paginationDiv.html(paginationHtml);
   }
-  
+
+  // Next button
+  paginationHtml += `
+    <li class="page-item ${nextDisabled}">
+      <a href="#" class="page-link" data-page="${currentPage + 1}">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>`;
+
+  paginationHtml += `</ul>`;
+
+  paginationDiv.html(paginationHtml);
+}
+
   // Pagination Click Handler
   $("#pagination").on("click", ".page-link", function (e) {
     e.preventDefault();
