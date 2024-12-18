@@ -1,17 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express();
+const authorization = require("../middleware/adminMiddleware");;
 const productModel = require('../models/product.model'); // Import product model
 const UserModel = require('../models/user.model'); // Assuming the User model exists
 const OrderModel = require('../models/order.model');
 
 
-router.get('/cart', (req,res)=>{
+router.get('/', (req,res)=>{
     return res.render("cart");
 })
 
 // ADD TO CART
-router.post('/cart/add', async (req, res) => {
+router.post('/add', async (req, res) => {
   try {
     const { productId, quantity } = req.body;
     const productObjectId = new mongoose.Types.ObjectId(productId);
@@ -50,7 +51,7 @@ router.post('/cart/add', async (req, res) => {
 });
 
 // GET CART DETAILS
-router.get('/api/cart', async (req, res) => {
+router.get('/api/cart',async (req, res) => {
   try {
     // Ensure user is authenticated
     const userId = req.session.user._id;
@@ -90,7 +91,7 @@ router.get('/api/cart', async (req, res) => {
 
 
 // Checkout method
-router.post('/cart/checkout', async (req, res) => {
+router.post('/checkout',async (req, res) => {
   try {
     const userId = req.session.user._id;
     if (!userId) {
@@ -142,8 +143,9 @@ router.post('/cart/checkout', async (req, res) => {
     res.status(500).json({ message: 'Error during checkout' });
   }
 });
-router.post('/cart/clear', (req, res) => {
+router.post('/clear', (req, res) => {
   try {
+    console.log("hi");
     const userId = req.session.user._id;
     if (!userId) {
       return res.status(400).json({ message: 'User not authenticated' });
@@ -157,6 +159,31 @@ router.post('/cart/clear', (req, res) => {
     res.status(500).json({ message: 'Server error while clearing cart' });
   }
 });
+// REMOVE ITEM FROM CART
+router.post('/remove/:id', (req, res) => {
+  try {
+    const userId = req.session.user._id;
+    if (!userId) {
+      return res.status(400).json({ message: 'User not authenticated' });
+    }
+
+    // Get the cart from the user-specific cookie
+    let cart = req.cookies[`cart-${userId}`] ? JSON.parse(req.cookies[`cart-${userId}`]) : [];
+
+    // Find and remove the item from the cart by matching the product ID
+    const itemId = req.params.id;
+    const updatedCart = cart.filter(item => item.id !== itemId);
+
+    // Update the cookie with the modified cart
+    res.cookie(`cart-${userId}`, JSON.stringify(updatedCart), { maxAge: 7 * 24 * 60 * 60 * 1000, httpOnly: true });
+
+    res.status(200).json({ message: 'Item removed successfully', cart: updatedCart });
+  } catch (error) {
+    console.error('Error removing item from cart:', error);
+    res.status(500).json({ message: 'Error removing item from cart' });
+  }
+});
+
 
 
 module.exports = router;

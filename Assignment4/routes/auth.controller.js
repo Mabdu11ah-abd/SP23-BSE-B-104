@@ -30,7 +30,7 @@ router.post("/login", async (req, res) => {
   console.log("User saved to session:", req.session.user);
 
   // Redirect after login
-  res.redirect("/admin/products");
+  res.redirect("/");
 });
 
 
@@ -45,13 +45,13 @@ router.post('/signup', async (req, res) => {
       const newUser = new User({
         name,
         email,
-        password,
-        role: [role]  // You can add more roles if needed
+        password: await bcrypt.hash(password, 10),
+        role: ["customer"]  // You can add more roles if needed
       });
-  
+      
+      console.log(newUser);
       newUser.save();
-      res.send('User created successfully!');
-      res.redirect("homepage");
+      res.redirect("/");
     } catch (err) {
       console.error('Error creating user:', err);
       res.status(500).send('Error during sign-up');

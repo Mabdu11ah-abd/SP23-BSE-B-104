@@ -1,138 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart Page</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Your Shopping Cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-store me-2"></i>Your Shop
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/cart"><i class="fas fa-shopping-cart me-1"></i>Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <div class="container mt-4">
-    <h1>Your Shopping Cart</h1>
-
-    <!-- Cart Table -->
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody id="cart-items">
-        <!-- Cart items will be inserted here dynamically -->
-      </tbody>
-    </table>
-
-    <!-- Buttons -->
-    <button id="clear-cart" class="btn btn-danger">Clear Cart</button>
-    <button id="checkout" class="btn btn-success">Checkout</button>
+  <div class="container">
+    <h1 class="mb-4">Your Shopping Cart</h1>
+    <div id="cart-items" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <!-- Cart items will be inserted here dynamically -->
+    </div>
+    <div class="cart-summary">
+      <h3>Cart Summary</h3>
+      <p class="fs-4">Total: <span id="cart-total" class="fw-bold text-success">$0.00</span></p>
+      <div class="d-flex gap-2">
+        <button id="clear-cart" class="btn btn-danger">
+          <i class="fas fa-trash-alt me-2"></i>Clear Cart
+        </button>
+        <button id="checkout" class="btn btn-success">
+          <i class="fas fa-shopping-cart me-2"></i>Checkout
+        </button>
+      </div>
+    </div>
   </div>
 
-  <!-- Bootstrap JS & jQuery -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <!-- Payment Options Modal -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="paymentModalLabel">Checkout Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="checkoutForm">
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" required>
+            </div>
+            <h6 class="mt-4 mb-3">Choose Payment Method</h6>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary payment-option" data-payment-method="cod">
+                <i class="fas fa-truck me-2"></i>Cash on Delivery
+              </button>
+              <button type="button" class="btn btn-secondary payment-option" data-payment-method="credit-card" disabled>
+                <i class="fas fa-credit-card me-2"></i>Credit Card (Coming Soon)
+              </button>
+              <button type="button" class="btn btn-secondary payment-option" data-payment-method="paypal" disabled>
+                <i class="fab fa-paypal me-2"></i>PayPal (Coming Soon)
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Function to fetch cart data from the backend
-    async function fetchCartData() {
-      try {
-        const response = await fetch('/api/cart');
-        const cartItems = await response.json();
-        renderCartItems(cartItems);
-      } catch (error) {
-        console.error('Error fetching cart data:', error);
+    $(document).ready(function() {
+      function fetchCartData() {
+        $.ajax({
+          url: '/cart/api/cart',
+          method: 'GET',
+          success: function(cartItems) {
+            renderCartItems(cartItems);
+          },
+          error: function(error) {
+            console.error('Error fetching cart data:', error);
+          }
+        });
       }
-    }
 
-    // Function to render the cart items in the table
-    function renderCartItems(cartItems) {
-      const cartItemsContainer = document.getElementById('cart-items');
-      cartItemsContainer.innerHTML = ''; // Clear current content
+      function renderCartItems(cartItems) {
+        const cartItemsContainer = $('#cart-items');
+        cartItemsContainer.empty();
+        let total = 0;
 
-      cartItems.forEach(item => {
-        const row = document.createElement('tr');
+        cartItems.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
 
-        const productCell = document.createElement('td');
-        productCell.textContent = item.title;  // Changed from item.name to item.title
-        row.appendChild(productCell);
-
-        const priceCell = document.createElement('td');
-        priceCell.textContent = `$${item.price}`;
-        row.appendChild(priceCell);
-
-        const quantityCell = document.createElement('td');
-        quantityCell.textContent = item.quantity;
-        row.appendChild(quantityCell);
-
-        const totalCell = document.createElement('td');
-        totalCell.textContent = `$${item.price * item.quantity}`;
-        row.appendChild(totalCell);
-
-        cartItemsContainer.appendChild(row);
-      });
-    }
-
-    // Function to clear the cart
-    // Function to clear the cart by calling the backend
-// Function to clear the cart by calling the backend
-async function clearCart() {
-  try {
-    const response = await fetch('/cart/clear', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    const result = await response.json();
-    console.log(result); // Log the response
-    if (response.ok) {
-      alert('Cart cleared successfully');
-      window.location.reload();  // Reload the page after clearing the cart
-    } else {
-      alert(`Error: ${result.message}`);
-    }
-  } catch (error) {
-    console.error('Error clearing cart:', error);
-  }
-}
-
-
-    // Add event listener to the Clear Cart button
-    document.getElementById('clear-cart').addEventListener('click', clearCart);
-
-    // Function to handle checkout
-    async function checkout() {
-      try {
-        const response = await fetch('/cart/checkout', { 
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' }
+          const cartItemCard = `
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="product-title">${item.title}</h5>
+                  <p class="product-price mb-1">$${item.price.toFixed(2)}</p>
+                  <p class="mb-2">Quantity: ${item.quantity}</p>
+                  <p class="mb-2">Total: $${itemTotal.toFixed(2)}</p>
+                  <button class="btn btn-danger mt-auto remove-item" data-id="${item.id}">
+                    <i class="fas fa-trash-alt me-2"></i>Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+          cartItemsContainer.append(cartItemCard);
         });
 
-        const result = await response.json();
+        $('#cart-total').text(`$${total.toFixed(2)}`);
 
-        if (response.ok) {
-          alert('Checkout successful! Order has been placed.');
-          // Clear the cart cookie after successful checkout
-          Cookies.remove('cart');
-          window.location.reload(); // Reload the page to show an empty cart
-        } else {
-          alert(`Error: ${result.message}`);
+        if (cartItems.length === 0) {
+          cartItemsContainer.append('<p class="col-12 text-center">Your cart is empty.</p>');
         }
-      } catch (error) {
-        console.error('Error during checkout:', error);
-        alert('There was an error during checkout.');
       }
-    }
 
-    // Add event listener to the Checkout button
-    document.getElementById('checkout').addEventListener('click', checkout);
+      function removeCartItem(itemId) {
+        $.ajax({
+          url: `/cart/remove/${itemId}`,
+          method: 'POST',
+          contentType: 'application/json',
+          success: function(result) {
+            alert('Item removed successfully');
+            fetchCartData();
+          },
+          error: function(error) {
+            console.error('Error removing item:', error);
+            alert('Error removing item');
+          }
+        });
+      }
 
-    // Fetch and render the cart data when the page loads
-    window.onload = fetchCartData;
+      function clearCart() {
+        $.ajax({
+          url: '/cart/clear',
+          method: 'POST',
+          contentType: 'application/json',
+          success: function(result) {
+            alert('Cart cleared successfully');
+            fetchCartData();
+          },
+          error: function(error) {
+            console.error('Error clearing cart:', error);
+            alert('Error clearing cart');
+          }
+        });
+      }
+
+      function checkout(paymentMethod) {
+        const address = $('#address').val();
+        const phone = $('#phone').val();
+        $.ajax({
+          url: '/cart/checkout',
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ paymentMethod: paymentMethod, address: address, phone: phone }),
+          success: function(result) {
+            alert('Checkout successful! Order has been placed.');
+            Cookies.remove('cart');
+            fetchCartData();
+          },
+          error: function(error) {
+            console.error('Error during checkout:', error);
+            alert('There was an error during checkout.');
+          }
+        });
+      }
+
+      $(document).on('click', '.remove-item', function() {
+        const itemId = $(this).data('id');
+        removeCartItem(itemId);
+      });
+
+      $('#clear-cart').on('click', clearCart);
+
+      $('#checkout').on('click', function() {
+        $('#paymentModal').modal('show');
+      });
+
+      $('#checkoutForm').on('submit', function(e) {
+        e.preventDefault();
+        const paymentMethod = $(this).find('button[type="submit"]').data('payment-method');
+        $('#paymentModal').modal('hide');
+        checkout(paymentMethod);
+      });
+
+      fetchCartData();
+    });
   </script>
-
 </body>
 </html>
+

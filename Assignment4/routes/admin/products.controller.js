@@ -1,14 +1,14 @@
 const express = require("express");
 let router = express.Router();
 let Product = require("../../models/product.model");
-let Category = require("../../models/category.model");
+let CategoryModel = require("../../models/category.model");
 const upload = require("../../multer"); // Assuming multer is configured
 
 router.get("/products/create", async (req, res) => {
   console.log("Method called ");
   try
   {
-    const categories = await Category.find().populate('name');
+    const categories = await CategoryModel.find().populate('name');
     res.render("./admin/product-form",{
       layout: "adminLayout",
       pageTitle:"Products creation",
@@ -134,6 +134,15 @@ router.get("/api/products/:page?", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error fetching products" });
+  }
+});
+router.get('/api/categories', async (req, res) => {
+  try {
+    const categories = await CategoryModel.find(); // Assuming you have a Category model
+    res.status(200).json(categories);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to fetch categories' });
   }
 });
 
