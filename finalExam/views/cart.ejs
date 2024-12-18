@@ -216,32 +216,38 @@
           });
         }
 
-        function checkout(paymentMethod) {
-          const address = $("#address").val();
-          if (!address) {
-            alert("Please provide your address.");
-            return;
-          }
+function checkout(paymentMethod) {
+  const address = $("#address").val();
+  if (!address) {
+    alert("Please provide your address.");
+    return;
+  }
 
-          $.ajax({
-            url: "/cart/checkout",
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify({
-              paymentMethod: paymentMethod,
-              address: address,
-            }),
-            success: function (result) {
-              alert("Checkout successful! Order has been placed.");
-              Cookies.remove(`cart-${userId}`);
-              fetchCartData();
-            },
-            error: function (error) {
-              console.error("Error during checkout:", error);
-              alert("There was an error during checkout.");
-            },
-          });
-        }
+  $.ajax({
+    url: "/cart/checkout",
+    method: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({
+      paymentMethod: paymentMethod,
+      address: address,
+    }),
+    success: function (result) {
+      alert("Checkout successful! Order has been placed.");
+      // Clear the cart cookies
+      Cookies.remove(`cart-${userId}`);
+      window.location.href = "/";  // Redirect to the home page
+
+      fetchCartData();
+
+      // Redirect to the home page after checkout
+    },
+    error: function (error) {
+      console.error("Error during checkout:", error);
+      alert("There was an error during checkout.");
+    },
+  });
+}
+
 
         $(document).on("click", ".remove-item", function () {
           const itemId = $(this).data("id");
