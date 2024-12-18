@@ -12,6 +12,6 @@ let productSchema = mongoose.Schema
 });
 productSchema.index({ title: "text", description: "text" });
 
-let productModel = mongoose.model("products", productSchema);
+let productModel = mongoose.model("Products", productSchema);
 
 module.exports = productModel;

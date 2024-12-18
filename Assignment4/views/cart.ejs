@@ -26,7 +26,10 @@
         <!-- Cart items will be inserted here dynamically -->
       </tbody>
     </table>
+
+    <!-- Buttons -->
     <button id="clear-cart" class="btn btn-danger">Clear Cart</button>
+    <button id="checkout" class="btn btn-success">Checkout</button>
   </div>
 
   <!-- Bootstrap JS & jQuery -->
@@ -45,7 +48,7 @@
         console.error('Error fetching cart data:', error);
       }
     }
-    
+
     // Function to render the cart items in the table
     function renderCartItems(cartItems) {
       const cartItemsContainer = document.getElementById('cart-items');
@@ -55,7 +58,7 @@
         const row = document.createElement('tr');
 
         const productCell = document.createElement('td');
-        productCell.textContent = item.name;
+        productCell.textContent = item.title;  // Changed from item.name to item.title
         row.appendChild(productCell);
 
         const priceCell = document.createElement('td');
@@ -75,14 +78,57 @@
     }
 
     // Function to clear the cart
-    async function clearCart() {
-      // Clear the cart cookie and reload the page
-      Cookies.remove('cart');
-      window.location.reload();
+    // Function to clear the cart by calling the backend
+// Function to clear the cart by calling the backend
+async function clearCart() {
+  try {
+    const response = await fetch('/cart/clear', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const result = await response.json();
+    console.log(result); // Log the response
+    if (response.ok) {
+      alert('Cart cleared successfully');
+      window.location.reload();  // Reload the page after clearing the cart
+    } else {
+      alert(`Error: ${result.message}`);
     }
+  } catch (error) {
+    console.error('Error clearing cart:', error);
+  }
+}
+
 
     // Add event listener to the Clear Cart button
     document.getElementById('clear-cart').addEventListener('click', clearCart);
+
+    // Function to handle checkout
+    async function checkout() {
+      try {
+        const response = await fetch('/cart/checkout', { 
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert('Checkout successful! Order has been placed.');
+          // Clear the cart cookie after successful checkout
+          Cookies.remove('cart');
+          window.location.reload(); // Reload the page to show an empty cart
+        } else {
+          alert(`Error: ${result.message}`);
+        }
+      } catch (error) {
+        console.error('Error during checkout:', error);
+        alert('There was an error during checkout.');
+      }
+    }
+
+    // Add event listener to the Checkout button
+    document.getElementById('checkout').addEventListener('click', checkout);
 
     // Fetch and render the cart data when the page loads
     window.onload = fetchCartData;

@@ -1,5 +1,7 @@
 module.exports = async function (req, res, next) {
-    if (req.session.user?.role===("customer")) return res.redirect("/login");
-    else next();
-  };
-  
+  console.log("Auth Middleware: User Session =>", req.session.user);
+  if (!req.session.user?.role.includes("admin")) {
+    return res.redirect("/login");
+  }
+  next();
+};

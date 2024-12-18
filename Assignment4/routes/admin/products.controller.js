@@ -3,7 +3,7 @@ let router = express.Router();
 let Product = require("../../models/product.model");
 let Category = require("../../models/category.model");
 
-router.get("/admin/products/create", async (req, res) => {
+router.get("/products/create", async (req, res) => {
   console.log("Method called ");
   try
   {
@@ -20,7 +20,7 @@ router.get("/admin/products/create", async (req, res) => {
   } 
 });
 
-router.post("/admin/products/create", async (req, res) => {
+router.post("/products/create", async (req, res) => {
   let data = req.body;
   console.log(req.body);
   let newProduct = new Product({
@@ -33,13 +33,13 @@ router.post("/admin/products/create", async (req, res) => {
   return res.redirect("/admin/products");
 });
 
-router.get("/admin/products/delete/:id", async (req, res) => {
+router.get("/products/delete/:id", async (req, res) => {
   let params = req.params;
   let product = await Product.findByIdAndDelete(req.params.id);
   return res.redirect("/admin/products");
 });
 
-router.get("/admin/products/edit/:id", async (req, res) => {
+router.get("/products/edit/:id", async (req, res) => {
   let product = await Product.findById(req.params.id);
   return res.render("admin/product-edit-form", {
     layout: "adminlayout",
@@ -47,7 +47,7 @@ router.get("/admin/products/edit/:id", async (req, res) => {
   });
 });
 
-router.post("/admin/products/edit/:id", async (req, res) => {
+router.post("/products/edit/:id", async (req, res) => {
   let product = await Product.findById(req.params.id);
   product.title = req.body.title;
   product.description = req.body.description;
@@ -56,8 +56,9 @@ router.post("/admin/products/edit/:id", async (req, res) => {
   return res.redirect("/admin/products");
 });
 
-router.get('/admin/products', async (req, res) => {
+router.get('/products', async (req, res) => {
   try {
+    console.log("method has been hit")
     const pageTitle = "Admin - Products"; // Set the page title
     res.render('admin/products', { 
       layout: "adminlayout",

@@ -5,7 +5,7 @@ const upload = require("../../multer");
 
 
 // Get all categories
-router.get("/admin/categories", async (req, res) => {
+router.get("/categories", async (req, res) => {
   let categories = await Category.find();
   return res.render("admin/categories", {
     layout: "adminlayout",
@@ -15,12 +15,12 @@ router.get("/admin/categories", async (req, res) => {
 });
 
 // Render form to create a category
-router.get("/admin/categories/create", (req, res) => {
+router.get("categories/create", (req, res) => {
   return res.render("admin/categories-form", { layout: "adminlayout" });
 });
 
 router.post(
-  '/admin/categories/create',
+  '/categories/create',
   upload.single('image'), // Use multer middleware to handle file upload
   async (req, res) => {
     try {
@@ -37,7 +37,7 @@ router.post(
       console.log(newCategory);
       await newCategory.save();
 
-      return res.redirect('/admin/categories');
+      return res.redirect('/categories');
     } catch (error) {
       console.error('Error creating category:', error);
       return res.status(500).send('An error occurred while creating the category.');
@@ -47,13 +47,13 @@ router.post(
 
 
 // Delete a category
-router.get("/admin/categories/delete/:id", async (req, res) => {
+router.get("/categories/delete/:id", async (req, res) => {
   await Category.findByIdAndDelete(req.params.id);
   return res.redirect("/admin/categories");
 });
 
 // Render form to edit a category
-router.get("/admin/categories/edit/:id", async (req, res) => {
+router.get("/categories/edit/:id", async (req, res) => {
   let category = await Category.findById(req.params.id);
   return res.render("admin/categories-edit-form", {
     layout: "adminlayout",
@@ -63,7 +63,7 @@ router.get("/admin/categories/edit/:id", async (req, res) => {
 
 // Handle category edit with file upload
 router.post(
-  '/admin/categories/edit/:id',
+  '/categories/edit/:id',
   upload.single('image'), // Handle optional image upload
   async (req, res) => {
     try {
@@ -84,7 +84,7 @@ router.post(
 
       await category.save();
 
-      return res.redirect('/admin/categories');
+      return res.redirect('/categories');
     } catch (error) {
       console.error('Error editing category:', error);
       return res.status(500).send('An error occurred while updating the category.');

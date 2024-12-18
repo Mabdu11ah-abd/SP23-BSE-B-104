@@ -54,23 +54,30 @@
       }
 
       // Function to handle adding to cart
-      async function addToCart(productId, quantity) {
-        try {
-          const response = await fetch('/api/cart/add', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ productId, quantity })
-          });
-          const result = await response.json();
-          if (response.ok) {
-            alert('Product added to cart successfully!');
-          } else {
-            alert(`Error: ${result.message}`);
-          }
-        } catch (error) {
-          console.error('Error adding to cart:', error);
-        }
-      }
+// Function to handle adding to cart
+// Function to handle adding to cart
+async function addToCart(productId, quantity) {
+  try {
+    const response = await fetch('/cart/add', { 
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({ productId, quantity })  // Stringify the object here
+    });
+
+    const result = await response.json();
+    if (response.ok) {
+      alert('Product added to cart successfully!');
+    } else {
+      alert(`Error: ${result.message}`);
+    }
+  } catch (error) {
+    console.error('Error adding to cart:', error);
+  }
+}
+
+
 
       // Event Listener for Add to Cart buttons
       productList.addEventListener('click', (event) => {
