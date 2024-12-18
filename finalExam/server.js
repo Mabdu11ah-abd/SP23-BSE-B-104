@@ -11,6 +11,8 @@ const siteMiddleware = require("./middleware/siteMiddleware");
 dotenv.config({ path: ".env.local" });
 let server = express();
 server.use(express.static("public"));
+server.use(express.static("public"));
+
 
 server.use(express.json()); // This is essential for parsing JSON request bodies
 server.set("view engine", "ejs");
@@ -38,7 +40,7 @@ let cartRouter = require('./routes/cart.controller');
 server.use("/cart",auth, cartRouter);
 
 let adminProductsRouter = require("./routes/admin/products.controller");
-server.use('/admin', auth,auth, adminProductsRouter);
+server.use('/admin', auth,admin, adminProductsRouter);
 
 let adminCategoreisRouter = require("./routes/admin/categories.controller");
 server.use("/admin", auth,admin, adminCategoreisRouter);
@@ -57,10 +59,10 @@ let shopRouter = require("./routes/shop.controller");
 server.use("/shop",auth, shopRouter);
 
 let orderRouter = require("./routes/order.controller");
-server.use(orderRouter);
+server.use(auth, orderRouter);
 
 //admin panel is accessible at /admin/products
-const uri = "mongodb+srv://iamabdullahforu:PsYR3xIqCaxlSZ5v@shanfoodsproject.gwpek.mongodb.net/?retryWrites=true&w=majority&appName=ShanFoodsProject/final";
+const uri = "mongodb://localhost:27017";
 //mongodb connection 
 mongoose.connect(uri)
 .then(() => {

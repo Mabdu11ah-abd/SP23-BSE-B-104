@@ -36,14 +36,19 @@
     <table class="table table-dark">
       <thead>
         <tr>
-          <th scope="col">Order ID</th>
-          <th scope="col">User</th>
-          <th scope="col">Total Price</th>
-          <th scope="col">Status</th>
-          <th scope="col">Order Date</th>
-          <th scope="col">Actions</th>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Total Price</th>
+          <th>Address</th>
+          <th>Date</th>
+          <th>Details</th>
         </tr>
       </thead>
+      <tbody id="orders-table-body">
+        <!-- Order rows will be inserted here dynamically -->
+      </tbody>
+      
       <tbody>
         <% orders.forEach(order => { %>
           <tr>
@@ -51,6 +56,7 @@
             <td><%= order.user.name %> (<%= order.user.email %>)</td>
             <td>$<%= order.totalPrice.toFixed(2) %></td>
             <td><%= order.status %></td>
+            <td><%=order.address %></td>
             <td><%= new Date(order.orderDate).toLocaleDateString() %></td>
             <td>
               <a href="/admin/orders/<%= order._id %>" class="btn btn-primary btn-sm">View Details</a>

@@ -1,47 +1,50 @@
-<h4>Create Product</h4>
-<p>If we do not give action attribute then the form is submitted to the URL on which it was rendered</p>
+<style>
+    .btn-dark{
+        background-color: #2a2a2a;
+    }
+    .image-input{
+        background-color: #2a2a2a;
+    }
+</style>
+<div class="container-fluid bg-dark">
+    <form action="/admin/products/create" method="post" enctype="multipart/form-data" class="bg-dark p-4 rounded">
 
-<form action="/admin/products/create" method="post"  enctype="multipart/form-data">
-
-    <div class="form-group">
-        <label for="titleInput">Title</label>
-        <input name="title" type="text" class="form-control" id="titleInput" aria-describedby="emailHelp" placeholder="Enter Title" value="IPhone" />
-        <small id="emailHelp" class="form-text text-muted">Product Title</small>
-    </div>
-  
-    <div class="form-group">
-        <label for="category">Category</label>
-        <select class="form-control" id="category" name="category">
+        <div class="form-group">
+          <label for="titleInput" class="text-white">Title</label>
+          <input name="title" type="text" class="form-control bg-secondary text-white border-0" id="titleInput" aria-describedby="emailHelp" placeholder="Enter Title" value="" />
+          <small id="emailHelp" class="form-text text-muted">Product Title</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="category" class="text-white">Category</label>
+          <select class="form-control bg-secondary text-white border-0" id="category" name="category">
             <option value="">Select a category</option>
             <% categories.forEach(category => { %>
-                <option value="<%= category._id %>"><%= category.name %></option>
+              <option value="<%= category._id %>"><%= category.name %></option>
             <% }) %>
-        </select>
-    </div>
+          </select>
+        </div>
+      
+        <div class="form-group">
+          <label for="descriptionInput" class="text-white">Description</label>
+          <textarea name="description" class="form-control bg-secondary text-white border-0" id="descriptionInput" placeholder="enter description"></textarea>
+          <small id="emailHelp" class="form-text text-muted">Product Details</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="priceInput" class="text-white">Price</label>
+          <input name="price" type="text" class="form-control bg-secondary text-white border-0" id="priceInput" placeholder="Enter price" value="">
+          <small id="emailHelp" class="form-text text-muted">Product Price in PKR</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="imageInput" class="text-white">Upload Image</label>
+          <input name="image" type="file" class="form-control bg-secondary text-white border-0" id="imageInput" accept="image/*" required />
+        </div>
+      
+        <div class="form-group  my-4">
+          <button class="btn btn-dark ">Create New Product</button>
+        </div>
+      </form>
+</div>
 
-    <div class="form-group">
-        <label for="descriptionInput">Description</label>
-        <textarea name="description" class="form-control" id="descriptionInput" placeholder="Enter Description">IPhone is Awesome</textarea>
-        <small id="emailHelp" class="form-text text-muted">Product Details</small>
-    </div>
-    
-    <div class="form-group">
-        <label for="priceInput">Price</label>
-        <input name="price" type="text" class="form-control" id="priceInput" placeholder="Enter Price" value="8000">
-        <small id="emailHelp" class="form-text text-muted">Product Price in PKR</small>
-    </div>
-    <div class="form-group">
-        <label for="imageInput">Upload Image</label>
-        <input
-          name="image"
-          type="file"
-          class="form-control"
-          id="imageInput"
-          accept="image/*"
-          required
-        />
-      </div>
-    <div class="form-group">
-        <button class="btn btn-info">Create New Product</button>
-    </div>
-</form>

@@ -1,37 +1,25 @@
 <style>
-    body {
-        background-color: #121212;
-        color: #ffffff;
+      body {
+      background-color: #121212; /* Dark background */
+      color: #ffffff; /* Light text color */
+      font-family: Arial, sans-serif; /* Consistent font */
     }
-    .card {
-      color: white;
-      background-color: #1e1e1e;
-      border: none;
-      border-radius: 10px;
+    h1 {
+      margin-bottom: 20px; /* Space below heading */
     }
-    .card img {
-        border-radius: 10px 10px 0 0;
-    }
-    .form-control, .form-select, .btn-dark {
-      background-color: #2a2a2a;
-      color: #ffffff;
-      border: 1px solid #444;
-    }
-    .form-control::placeholder, .form-select {
-      color: #b3b3b3;
+    .btn-dark {
+      background-color: #2a2a2a; /* Dark background for primary button */
+      border-color: #444; /* Dark border */
     }
     .btn-dark:hover {
-        background-color: #444;
-      border-color: #666;
+      background-color: #444; /* Lighter background on hover */
     }
-    .input-group .form-control {
-        border-radius: 0.5rem 0 0 0.5rem;
+    .btn-warning {
+      background-color: #b57c00; /* Warning button color */
+      border-color: #b57c00; /* Warning border color */
     }
-    .input-group .btn {
-        border-radius: 0 0.5rem 0.5rem 0;
-    }
-    .container-fluid {
-        max-width: 600px; /* Adjusted width for forms */
+    .btn-warning:hover {
+      background-color: #d69f00; /* Lighter background on hover */
     }
     .pagination .page-item.active .page-link {
         background-color: #444; /* Active page background */
@@ -46,7 +34,7 @@
     }
     </style>
     <h2><%- pageTitle %></h2>
-    <a href="/admin/categories/create" class="btn btn-dark btn-info">Create New Category</a>
+    <a href="/admin/categories/create" class="btn btn-dark text-white btn-info">Create New Category</a>
     <table class="table table-dark">
     <thead>
       <tr>

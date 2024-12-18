@@ -37,6 +37,10 @@ let orderSchema = mongoose.Schema({
   orderDate: { 
     type: Date, 
     default: Date.now 
+  },
+  address:{
+    type:String,
+    required:true
   }
 });
 

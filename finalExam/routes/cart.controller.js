@@ -90,12 +90,16 @@ router.get('/api/cart',async (req, res) => {
 });
 
 
-// Checkout method
-router.post('/checkout',async (req, res) => {
+router.post('/checkout', async (req, res) => {
   try {
     const userId = req.session.user._id;
     if (!userId) {
       return res.status(400).json({ message: 'User not authenticated' });
+    }
+
+    const { address } = req.body;
+    if (!address) {
+      return res.status(400).json({ message: 'Address is required' });
     }
 
     // Get the cart from the user-specific cookie
@@ -128,7 +132,8 @@ router.post('/checkout',async (req, res) => {
     const order = new OrderModel({
       user: userId,
       products: productsWithDetails,
-      totalPrice: totalPrice
+      totalPrice: totalPrice,
+      address: address // Add the address field here
     });
 
     // Save the order to the database
@@ -143,6 +148,7 @@ router.post('/checkout',async (req, res) => {
     res.status(500).json({ message: 'Error during checkout' });
   }
 });
+
 router.post('/clear', (req, res) => {
   try {
     console.log("hi");
