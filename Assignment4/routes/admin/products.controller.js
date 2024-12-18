@@ -2,6 +2,7 @@ const express = require("express");
 let router = express.Router();
 let Product = require("../../models/product.model");
 let Category = require("../../models/category.model");
+const upload = require("../../multer"); // Assuming multer is configured
 
 router.get("/products/create", async (req, res) => {
   console.log("Method called ");
@@ -20,19 +21,6 @@ router.get("/products/create", async (req, res) => {
   } 
 });
 
-router.post("/products/create", async (req, res) => {
-  let data = req.body;
-  console.log(req.body);
-  let newProduct = new Product({
-    title: req.body.title,
-    description: req.body.description,
-    price: req.body.price,
-    category: req.body.category,
-});
-  await newProduct.save();
-  return res.redirect("/admin/products");
-});
-
 router.get("/products/delete/:id", async (req, res) => {
   let params = req.params;
   let product = await Product.findByIdAndDelete(req.params.id);
@@ -47,14 +35,54 @@ router.get("/products/edit/:id", async (req, res) => {
   });
 });
 
-router.post("/products/edit/:id", async (req, res) => {
-  let product = await Product.findById(req.params.id);
-  product.title = req.body.title;
-  product.description = req.body.description;
-  product.price = req.body.price;
-  await product.save();
-  return res.redirect("/admin/products");
+
+// Add a new product with an image
+router.post("/products/create", upload.single('image'), async (req, res) => {
+  try {
+    const newProduct = new Product({
+      title: req.body.title,
+      description: req.body.description,
+      price: req.body.price,
+      category: req.body.category,
+      image: req.file ? req.file.path : null,  // Store image path if available
+    });
+    console.log(req.file.path);
+
+    console.log(newProduct);
+    await newProduct.save();
+    return res.redirect("/admin/products");
+  } catch (error) {
+    console.log(error, "in create method");
+    res.status(500).send("Error creating product");
+  }
 });
+
+// Edit product with optional image update
+router.post("/products/edit/:id", upload.single('image'), async (req, res) => {
+  try {
+    let product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+
+    // Update fields
+    product.title = req.body.title;
+    product.description = req.body.description;
+    product.price = req.body.price;
+
+    // If a new image is uploaded, replace the old one
+    if (req.file) {
+      product.image = req.file.path; // Store new image path
+    }
+
+    await product.save();
+    return res.redirect("/admin/products");
+  } catch (error) {
+    console.log(error, "in edit method");
+    res.status(500).send("Error updating product");
+  }
+});
+
 
 router.get('/products', async (req, res) => {
   try {

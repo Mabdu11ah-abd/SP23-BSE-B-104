@@ -57,6 +57,7 @@
         <th>Price</th>
         <th>Category</th>
         <th>Description</th>
+        <th>Image</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -120,30 +121,39 @@ $("#search-form").on("submit", function (e) {
       },
     });
 
-  }function renderProducts({ products, totalRecords, totalPages, page }) {
-    queryParams.page = page; // Update the current page
-    const tableBody = $("#product-table tbody");
-    tableBody.empty();
-  
-    products.forEach((product) => {
-      console.log(product);
-      tableBody.append(`
-        <tr>
-          <td>${product._id}</td>
-          <td>${product.title}</td>
-          <td>${product.price}</td>
-          <td>${product.category ? product.category.name : "No category"}</td>
-          <td>${product.description}</td>
-          <td>
-            <a href="/admin/products/edit/${product._id}" class="btn btn-warning">Edit</a>
-            <a href="/admin/products/delete/${product._id}" class="btn btn-danger">Delete</a>
-          </td>
-        </tr>
-      `);
-    });
-  
-    renderPagination(totalPages, page);
   }
+  function renderProducts({ products, totalRecords, totalPages, page }) {
+  queryParams.page = page; // Update the current page
+  const tableBody = $("#product-table tbody");
+  tableBody.empty();
+
+  products.forEach((product) => {
+    console.log(product);
+    let imageHtml = "";
+    if (product.image) {
+      // Display the product image
+      imageHtml = `<img src="${product.image}" alt="${product.title}" style="width: 100px; height: auto;">`;
+    } else {
+      imageHtml = "No image available";
+    }
+
+    tableBody.append(`
+      <tr>
+        <td>${product._id}</td>
+        <td>${product.title}</td>
+        <td>${product.price}</td>
+        <td>${product.category ? product.category.name : "No category"}</td>
+        <td>${product.description}</td>
+        <td>${imageHtml}</td> <!-- Add image column -->
+        <td>
+          <a href="/admin/products/edit/${product._id}" class="btn btn-warning">Edit</a>
+          <a href="/admin/products/delete/${product._id}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    `);
+  });
+  renderPagination(totalPages, page);
+}
   
   function renderPagination(totalPages, currentPage) {
   const paginationDiv = $("#pagination");

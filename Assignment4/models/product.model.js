@@ -8,7 +8,9 @@ let productSchema = mongoose.Schema
     category:  {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
-    }  
+    },
+    image:String
+
 });
 productSchema.index({ title: "text", description: "text" });
 
